@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>vue-xy-ui</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #demo {
+      height: 200vh;
+      background: linear-gradient(black 0%, black 10%, white 10%, white 20%, black 20%, black 30%, white 30%, white 40%, black 40%, black 50%, white 50%, white 60%, black 60%, black 70%, white 70%, white 80%, black 80%, black 90%, white 90%, white 100%);
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <xy-reach-bottom threshold="0"
+                   @on-bottom="onbottom"></xy-reach-bottom>
+  <div id="demo">
+
+  </div>
+</div>
+<!--<script src="./vue.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.11/dist/vue.js"></script>
+<script src="./dist/vue-xy-ui.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data () {
+      return {}
+    },
+    methods: {
+      onbottom () {
+        alert('onbottom')
+      }
+    }
+  })
+</script>
+</body>
+</html>
