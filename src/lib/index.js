@@ -1,6 +1,7 @@
 import Style from './scss/style.scss'
 
 import xyReachBottom from './components/xy-reach-bottom.vue'
+import xyScaleSlider from './components/xy-scale-slider.vue'
 
 import xyKeepTop from './directives/xy-keep-top'
 import xyMovingBtn from './directives/xy-moving-btn'
@@ -12,6 +13,7 @@ import VueLazyload from 'vue-lazyload'
 const xyUI = {
   install (Vue) {
     Vue.component(xyReachBottom.name, xyReachBottom)
+    Vue.component(xyScaleSlider.name, xyScaleSlider)
 
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyMovingBtn.name, xyMovingBtn)

@@ -3,6 +3,12 @@
        v-xy-pull-refresh="onPullRefresh">
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
+    <xy-scale-slider width="640"
+                     height="290"
+                     interval="3"
+                     :imgs="imgs"
+                     @on-change="onchange"
+                     v-xy-moving-btn></xy-scale-slider>
     <div id="demo">
       <div class="keepTopOther"></div>
       <div id="keepTop"
@@ -33,11 +39,68 @@
   export default {
     name: 'app',
     data () {
-      return {}
+      return {
+        imgs0: [],
+        imgs1: [
+          {
+            name: '100*600',
+            src: 'http://dummyimage.com/100x600',
+            href: '#'
+          }
+        ],
+        imgs2: [
+          {
+            name: '100*600',
+            src: 'http://dummyimage.com/100x600',
+            href: '#'
+          }, {
+            name: '200*600',
+            src: 'http://dummyimage.com/200x600',
+            href: 'https://www.baidu.com/'
+          }
+        ],
+        imgs3: [
+          {
+            name: '100*600',
+            src: 'http://dummyimage.com/100x600',
+            href: '#'
+          }, {
+            name: '200*600',
+            src: 'http://dummyimage.com/200x600',
+            href: 'https://www.baidu.com/'
+          }, {
+            name: '300*300',
+            src: 'http://dummyimage.com/300x300',
+            href: 'https://www.baidu.com/'
+          }
+        ],
+        imgs: [
+          {
+            name: '100*600',
+            src: 'http://dummyimage.com/100x600',
+            href: '#'
+          }, {
+            name: '200*600',
+            src: 'http://dummyimage.com/200x600',
+            href: '#'
+          }, {
+            name: '300*300',
+            src: 'http://dummyimage.com/300x300',
+            href: '#'
+          }, {
+            name: '400*200',
+            src: 'http://dummyimage.com/400x200',
+            href: '#'
+          }
+        ]
+      }
     },
     methods: {
       onbottom () {
         alert('onbottom')
+      },
+      onchange (item, index) {
+        console.log('onchange', item, index)
       },
       onPullRefresh (stop) {
         setTimeout(function () {
