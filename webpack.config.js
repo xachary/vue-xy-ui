@@ -1,5 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var ExtractSCSS = new ExtractTextPlugin({
+  filename: 'vue-xy-ui.css',
+  allChunks: true
+})
 
 module.exports = {
   entry: './src/main.js',
@@ -8,6 +13,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  plugins: [
+    ExtractSCSS
+  ],
   module: {
     rules: [
       {
@@ -17,42 +25,43 @@ module.exports = {
           'css-loader'
         ],
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     'vue-style-loader',
+      //     'css-loader',
+      //     'sass-loader'
+      //   ],
+      // },
       {
         test: /\.scss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader'
-        ],
-      },
-      {
-        test: /\.sass$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader?indentedSyntax'
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'vue-style-loader',
+          use: [
+            'css-loader',
+            'sass-loader'
+          ]
+        }),
+        exclude: /node_modules/
       },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader'
-            ],
-            'sass': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader?indentedSyntax'
-            ]
+            // 'scss': [
+            //   'vue-style-loader',
+            //   'css-loader',
+            //   'sass-loader'
+            // ]
+            'scss': ExtractTextPlugin.extract({
+              fallback: 'vue-style-loader',
+              use: [
+                'css-loader',
+                'sass-loader'
+              ]
+            })
           }
-          // other vue-loader options go here
         }
       },
       {

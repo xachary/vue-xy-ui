@@ -1,0 +1,118 @@
+// 设计稿750x1334
+
+// relate to screen height
+// 传入设计稿高度
+@function rsh($value) {
+  //@return $value/1334*100vh;
+  //@return $value/1334*100vmax;
+  //@return $value*0.5px;
+  //@return calc(var(--base-unit) * 0.75);
+  //@return calc(var(--base-unit) * 0.75);
+  @return $value/750*100vw;
+}
+
+// design value
+// 传入设计稿值
+@function dsv($value) {
+  @return $value/2;
+}
+
+// a标签的颜色
+@mixin acr($color) {
+  color: $color;
+  &:link {
+    color: $color;
+  }
+  &:visited {
+    color: $color;
+  }
+  &:hover {
+    color: $color;
+  }
+  &:active {
+    color: $color;
+  }
+}
+
+@mixin angle($color,$size,$direction:'right',$style:'slim') {
+  $char: '>';
+  $tran: scale(1, 2);
+  @if $direction == 'left' {
+    $char: '<';
+  } @else if $direction == 'top' {
+    $char: '∧';
+    $tran: scale(1, 0.5);
+  } @else if $direction == 'bottom' {
+    $char: '∨';
+    $tran: scale(1, 0.5);
+  }
+  @if $style == 'solid' {
+    $tran: scale(1, 0.6);
+    //$size: 12;
+    @if $direction == 'right' {
+      $char: '▶';
+    } @else if $direction == 'left' {
+      $char: '◀';
+    } @else if $direction == 'top' {
+      $char: '▲';
+    } @else if $direction == 'bottom' {
+      $char: '▼';
+    }
+  }
+  &:after {
+    content: $char;
+    display: block;
+    color: $color;
+    transform: $tran;
+    transform-origin: center;
+    font-weight: 100;
+    font-size: rsh($size - 2);
+    line-height: rsh($size);
+    height: rsh($size);
+    vertical-align: middle;
+    flex-grow: 0;
+  }
+}
+
+//@mixin img-cover($w,$h) {
+//  overflow: hidden;
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//  justify-content: center;
+//  position: relative;
+//  & > img {
+//    width: 100%;
+//    min-width: rsh($w);
+//    min-height: rsh($h);
+//    flex-shrink: 0;
+//  }
+//}
+
+//省略号
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin ellipsis-line($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+
+@mixin icon($url) {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url($url);
+}
+
+@mixin cbg($url) {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url($url);
+}
