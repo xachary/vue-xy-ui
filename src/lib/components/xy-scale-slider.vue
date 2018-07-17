@@ -10,7 +10,7 @@
          :href="item.href"
          class="lazy-load"
          :class="{'xy-scale-slider--wait-r':index>current,'xy-scale-slider--wait-l':index<current}"
-         :style="{'width':`${widthRSH}vw`,'height':`${heightRSH}vw`,'margin':`${marginRSH}vw`}">
+         :style="{'width':`${widthRSH}vw`,'height':`${heightRSH}vw`,'margin':`0 ${marginRSH}vw`}">
         <img v-lazy="item.src"
              class="lazy-cover"
              :alt="item.name">
