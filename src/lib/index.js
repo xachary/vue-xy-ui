@@ -4,8 +4,9 @@ import xyReachBottom from './components/xy-reach-bottom.vue'
 
 import xyKeepTop from './directives/xy-keep-top'
 import xyMovingBtn from './directives/xy-moving-btn'
-import xyLazyloadResize from './plugins/xy-lazyload-resize'
+import xyPullRefresh from './directives/xy-pull-refresh'
 
+import xyLazyloadResize from './plugins/xy-lazyload-resize'
 import VueLazyload from 'vue-lazyload'
 
 const xyUI = {
@@ -14,6 +15,7 @@ const xyUI = {
 
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyMovingBtn.name, xyMovingBtn)
+    Vue.directive(xyPullRefresh.name, xyPullRefresh)
 
     Vue.use(VueLazyload, xyLazyloadResize)
   }

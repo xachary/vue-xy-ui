@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app"
+       v-xy-pull-refresh="onPullRefresh">
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
     <div id="demo">
@@ -37,6 +38,11 @@
     methods: {
       onbottom () {
         alert('onbottom')
+      },
+      onPullRefresh (stop) {
+        setTimeout(function () {
+          stop()
+        }, 2000)
       }
     }
   }
