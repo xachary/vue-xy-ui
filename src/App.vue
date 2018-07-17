@@ -10,6 +10,16 @@
       </div>
       <div class="keepTopOther"></div>
     </div>
+    <div class="lazy-load"
+         style="width: 100px;height: 100px;border: 1px solid red;">
+      <img v-lazy="'http://dummyimage.com/300x600'"
+           class="lazy-cover">
+    </div>
+    <div class="lazy-load"
+         style="width: 100px;height: 100px;border: 1px solid red;">
+      <img v-lazy="'http://dummyimage.com/300x600'"
+           class="lazy-contain">
+    </div>
   </div>
 </template>
 
@@ -33,6 +43,8 @@
 </script>
 
 <style lang="scss">
+  /*@import './lib/scss/style.scss';*/
+
   body {
     margin: 0;
   }

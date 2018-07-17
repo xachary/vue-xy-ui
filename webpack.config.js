@@ -25,44 +25,45 @@ module.exports = {
           'css-loader'
         ],
       },
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     'vue-style-loader',
-      //     'css-loader',
-      //     'sass-loader'
-      //   ],
-      // },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'vue-style-loader',
-          use: [
-            'css-loader',
-            'sass-loader'
-          ]
-        }),
-        exclude: /node_modules/
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ],
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: 'vue-style-loader',
+      //     use: [
+      //       'css-loader',
+      //       'sass-loader'
+      //     ]
+      //   }),
+      //   include: /src/
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
-            // 'scss': [
-            //   'vue-style-loader',
-            //   'css-loader',
-            //   'sass-loader'
-            // ]
-            'scss': ExtractTextPlugin.extract({
-              fallback: 'vue-style-loader',
-              use: [
-                'css-loader',
-                'sass-loader'
-              ]
-            })
+            'scss': [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader'
+            ]
+            // 'scss': ExtractTextPlugin.extract({
+            //   fallback: 'vue-style-loader',
+            //   use: [
+            //     'css-loader',
+            //     'sass-loader'
+            //   ]
+            // })
           }
-        }
+        },
+        include: /src/
       },
       {
         test: /\.js$/,

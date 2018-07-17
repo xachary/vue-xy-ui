@@ -1,2 +1,2 @@
-@keyframes xy-moving-btn{0%{transform:scale(1)}50%{transform:scale(.9)}to{transform:scale(1)}}.xy-moving-btn{background-color:red!important}.xy-moving-btn.xy-moving-btn--moving{animation:xy-moving-btn .2s ease-in-out}
+@keyframes xy-moving-btn{0%{transform:scale(1)}50%{transform:scale(.9)}to{transform:scale(1)}}.xy-moving-btn.xy-moving-btn--moving{animation:xy-moving-btn .2s ease-in-out}
 /*# sourceMappingURL=vue-xy-ui.css.map*/

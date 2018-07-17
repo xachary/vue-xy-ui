@@ -1,7 +1,7 @@
 {
   "name": "vue-xy-ui",
   "description": "Some ui components by xachary",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "author": "xachary <xachary@qq.com>",
   "license": "MIT",
   "private": false,
@@ -16,7 +16,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-lazyload": "^1.2.6"
   },
   "browserslist": [
     "> 1%",

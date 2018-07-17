@@ -13,8 +13,62 @@
 }
 
 .xy-moving-btn {
-  background-color: red !important;
   &.xy-moving-btn--moving {
     animation: xy-moving-btn 0.2s ease-in-out;
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg)
+  }
+  100% {
+    transform: rotateZ(360deg)
+  }
+}
+
+.lazy-load {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  img {
+    display: block;
+    &[lazy=loading], &[lazy=error] {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    &[lazy=loading] {
+      font-size: 12px;
+      margin-top: -8px;
+      margin-left: -8px;
+      height: 16px;
+      width: 16px;
+      animation: rotating 1s linear infinite;
+    }
+    &[lazy=error] {
+      height: 46px;
+      width: 50px;
+      margin-top: -23px;
+      margin-left: -25px;
+    }
+    &.lazy-contain, &.lazy-cover {
+      position: absolute;
+      &.loading {
+        opacity: 1;
+        height: 16px;
+        width: 16px;
+      }
+      &.loaded {
+        opacity: 0;
+      }
+      &.resize {
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+        opacity: 1;
+      }
+    }
   }
 }

@@ -14,8 +14,8 @@
   <meta name="format-detection"
         content="telephone=no">
   <title>vue-xy-ui</title>
-  <link rel="stylesheet"
-        href="/dist/vue-xy-ui.css">
+  <!--<link rel="stylesheet"-->
+  <!--href="/dist/vue-xy-ui.css">-->
   <style>
     body {
       margin: 0;
@@ -50,6 +50,16 @@
       <button v-xy-moving-btn>keep-top & moving-btn</button>
     </div>
     <div class="keepTopOther"></div>
+  </div>
+  <div class="lazy-load"
+       style="width: 100px;height: 100px;border: 1px solid red;">
+    <img v-lazy="'http://dummyimage.com/300x600'"
+         class="lazy-cover">
+  </div>
+  <div class="lazy-load"
+       style="width: 100px;height: 100px;border: 1px solid red;">
+    <img v-lazy="'http://dummyimage.com/300x600'"
+         class="lazy-contain">
   </div>
 </div>
 <!--<script src="./vue.min.js"></script>-->
