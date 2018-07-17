@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta data-hid="description"
+        name="description"
+        content="vue-xy-ui">
+  <meta name="apple-mobile-web-app-capable"
+        content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black">
+  <meta name="format-detection"
+        content="telephone=no">
   <title>vue-xy-ui</title>
   <style>
     body {
@@ -12,6 +23,18 @@
       height: 200vh;
       background: linear-gradient(black 0%, black 10%, white 10%, white 20%, black 20%, black 30%, white 30%, white 40%, black 40%, black 50%, white 50%, white 60%, black 60%, black 70%, white 70%, white 80%, black 80%, black 90%, white 90%, white 100%);
     }
+
+    .keepTopOther {
+      height: 10vh;
+      background-color: blue;
+    }
+
+    #keepTop {
+      height: 10vh;
+      background-color: yellow;
+      line-height: 10vh;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -19,7 +42,11 @@
   <xy-reach-bottom threshold="0"
                    @on-bottom="onbottom"></xy-reach-bottom>
   <div id="demo">
-
+    <div class="keepTopOther"></div>
+    <div id="keepTop"
+         v-xy-keep-top>keep-top
+    </div>
+    <div class="keepTopOther"></div>
   </div>
 </div>
 <!--<script src="./vue.min.js"></script>-->
