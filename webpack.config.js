@@ -36,6 +36,11 @@ module.exports = {
         from: 'src/lib/scss/base.scss',
         to: 'base.scss',
         force: true
+      },
+      {
+        from: 'src/lib/style/normalize-8.0.0.css',
+        to: 'style/normalize-8.0.0.css',
+        force: true
       }
     ])
   ],
