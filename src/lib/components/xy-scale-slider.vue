@@ -77,19 +77,19 @@
       that.wideRSH = (that.marginRSH * 2 + that.widthRSH) * that.imgs.length
       that.heightRSH = that.height * 100 / 750
 
-      if (that.imgs.length > 1) {
-        that.current = 1
-      }
-
-      if (that.imgs.length > 2) {
-        that.imgs.splice(0, 0, that.imgs.pop())
-      }
+      //      if (that.imgs.length > 1) {
+      //        that.current = 1
+      //      }
+      //
+      //      if (that.imgs.length > 2) {
+      //        that.imgs.splice(0, 0, that.imgs.pop())
+      //      }
 
       //      that.leftRSH = -(that.marginRSH * 2 + that.widthRSH) * that.current - that.marginRSH
       //      that.ex = that.leftRSH * 750 / 2 / 100
       that.update()
 
-      that.start()
+      //      that.start()
     },
     methods: {
       onTouchstart ({touches: [touch]}) {
@@ -130,7 +130,7 @@
         }
 
         that.update()
-        that.start()
+        //        that.start()
       },
       update () {
         let that = this
