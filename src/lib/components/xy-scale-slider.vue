@@ -67,30 +67,15 @@
         return parseInt(that.interval) * 1000
       }
     },
+    watch: {
+      imgs (nv, ov) {
+        let that = this
+        that.change()
+      }
+    },
     mounted: function () {
       let that = this
-
-      console.log(window.innerWidth)
-      console.log(that.width / 2)
-
-      that.widthRSH = that.width * 100 / 750
-      that.paddingRSH = (100 - that.widthRSH) / 2
-      that.marginRSH = that.paddingRSH / 4
-      that.wideRSH = (that.marginRSH * 2 + that.widthRSH) * that.imgs.length
-      that.heightRSH = that.height * 100 / 750
-
-      //      if (that.imgs.length > 1) {
-      //        that.current = 1
-      //      }
-      //
-      //      if (that.imgs.length > 2) {
-      //        that.imgs.splice(0, 0, that.imgs.pop())
-      //      }
-
-      //      that.leftRSH = -(that.marginRSH * 2 + that.widthRSH) * that.current - that.marginRSH
-      //      that.ex = that.leftRSH * 750 / 2 / 100
-      that.update()
-
+      that.change()
       //      that.start()
     },
     methods: {
@@ -133,6 +118,17 @@
 
         that.update()
         //        that.start()
+      },
+      change () {
+        let that = this
+
+        that.widthRSH = that.width * 100 / 750
+        that.paddingRSH = (100 - that.widthRSH) / 2
+        that.marginRSH = that.paddingRSH / 4
+        that.wideRSH = (that.marginRSH * 2 + that.widthRSH) * that.imgs.length
+        that.heightRSH = that.height * 100 / 750
+
+        that.update()
       },
       update () {
         let that = this

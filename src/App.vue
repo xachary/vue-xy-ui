@@ -1,13 +1,13 @@
 <template>
   <div id="app"
        v-xy-pull-refresh="onPullRefresh">
-    <xy-page-progress></xy-page-progress>
+    <!--<xy-page-progress></xy-page-progress>-->
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
     <xy-scale-slider width="640"
                      height="290"
                      interval="3"
-                     :imgs="imgs"
+                     :imgs="imgs1"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
     <div id="demo">
@@ -175,6 +175,12 @@
           stop()
         }, 2000)
       }
+    },
+    mounted: function () {
+      let that = this
+      setTimeout(function () {
+        that.imgs1 = that.imgs
+      }, 3000)
     }
   }
 </script>
