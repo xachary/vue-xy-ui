@@ -6,15 +6,17 @@
          @touchmove="onTouchmove"
          @touchend="onTouchend"
          :class="{'xy-scale-slider--auto':auto}">
-      <a v-for="(item, index) in imgs"
-         :href="item.href"
-         class="lazy-load"
-         :class="{'xy-scale-slider--wait-r':index>current,'xy-scale-slider--wait-l':index<current}"
-         :style="{'width':`${widthRSH}vw`,'height':`${heightRSH}vw`,'margin':`0 ${marginRSH}vw`}">
+      <router-link tag="a"
+                   :to="item.href"
+                   class="lazy-load"
+                   :class="{'xy-scale-slider--wait-r':index>current,'xy-scale-slider--wait-l':index<current}"
+                   :style="{'width':`${widthRSH}vw`,'height':`${heightRSH}vw`,'margin':`0 ${marginRSH}vw`}"
+                   v-for="(item, index) in imgs"
+                   :key="item.id">
         <img v-lazy="item.src"
              class="lazy-cover"
              :alt="item.name">
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

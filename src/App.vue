@@ -101,6 +101,7 @@
         imgs0: [],
         imgs1: [
           {
+            id: '1',
             name: '100*600',
             src: 'http://dummyimage.com/100x600',
             href: '#'
@@ -108,10 +109,12 @@
         ],
         imgs2: [
           {
+            id: '1',
             name: '100*600',
             src: 'http://dummyimage.com/100x600',
             href: '#'
           }, {
+            id: '2',
             name: '200*600',
             src: 'http://dummyimage.com/200x600',
             href: 'https://www.baidu.com/'
@@ -119,14 +122,17 @@
         ],
         imgs3: [
           {
+            id: '1',
             name: '100*600',
             src: 'http://dummyimage.com/100x600',
             href: '#'
           }, {
+            id: '2',
             name: '200*600',
             src: 'http://dummyimage.com/200x600',
             href: 'https://www.baidu.com/'
           }, {
+            id: '3',
             name: '300*300',
             src: 'http://dummyimage.com/300x300',
             href: 'https://www.baidu.com/'
@@ -134,18 +140,22 @@
         ],
         imgs: [
           {
+            id: '1',
             name: '100*600',
             src: 'http://dummyimage.com/100x600',
             href: '#'
           }, {
+            id: '2',
             name: '200*600',
             src: 'http://dummyimage.com/200x600',
-            href: '#'
+            href: '/page-progress'
           }, {
+            id: '3',
             name: '300*300',
             src: 'http://dummyimage.com/300x300',
             href: '#'
           }, {
+            id: '4',
             name: '400*200',
             src: 'http://dummyimage.com/400x200',
             href: '#'
