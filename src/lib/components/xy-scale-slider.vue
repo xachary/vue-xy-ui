@@ -44,7 +44,6 @@
       }
     },
     data () {
-      let that = this
       return {
         current: 0,
         cur: -1,
@@ -59,9 +58,7 @@
 
         sx: 0,
         mx: 0,
-        ex: 0,
-
-        array: that.imgs
+        ex: 0
       }
     },
     computed: {
@@ -73,11 +70,8 @@
     watch: {
       imgs (nv, ov) {
         let that = this
-        that.change()
-      },
-      array () {
-        let that = this
-        that.change()
+        that.current = 0
+        that.change(true)
       }
     },
     mounted: function () {
@@ -126,7 +120,7 @@
         that.update()
         //        that.start()
       },
-      change () {
+      change (force) {
         let that = this
 
         that.widthRSH = that.width * 100 / 750
@@ -135,9 +129,9 @@
         that.wideRSH = (that.marginRSH * 2 + that.widthRSH) * that.imgs.length
         that.heightRSH = that.height * 100 / 750
 
-        that.update()
+        that.update(force)
       },
-      update () {
+      update (force) {
         let that = this
 
         if (that.current < 0) {
@@ -147,7 +141,7 @@
         }
 
         //        console.log(that.cur, that.current)
-        if (that.cur !== that.current) {
+        if (that.cur !== that.current || force) {
           that.cur = that.current
 
           that.$emit('on-change', that.imgs[that.current], that.current, that.imgs.length)

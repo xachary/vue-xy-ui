@@ -7,7 +7,7 @@
     <xy-scale-slider width="640"
                      height="290"
                      interval="3"
-                     :imgs="imgs1"
+                     :imgs="imgs"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
     <div id="demo">
@@ -109,12 +109,12 @@
         ],
         imgs2: [
           {
-            id: '1',
-            name: '100*600',
-            src: 'http://dummyimage.com/100x600',
+            id: '2',
+            name: '200*600',
+            src: 'http://dummyimage.com/200x600',
             href: '#'
           }, {
-            id: '2',
+            id: '3',
             name: '200*600',
             src: 'http://dummyimage.com/200x600',
             href: 'https://www.baidu.com/'
@@ -122,45 +122,46 @@
         ],
         imgs3: [
           {
-            id: '1',
-            name: '100*600',
-            src: 'http://dummyimage.com/100x600',
+            id: '4',
+            name: '300*600',
+            src: 'http://dummyimage.com/300x600',
             href: '#'
           }, {
-            id: '2',
-            name: '200*600',
-            src: 'http://dummyimage.com/200x600',
+            id: '5',
+            name: '300*600',
+            src: 'http://dummyimage.com/300x600',
             href: 'https://www.baidu.com/'
           }, {
-            id: '3',
+            id: '6',
             name: '300*300',
             src: 'http://dummyimage.com/300x300',
             href: 'https://www.baidu.com/'
           }
         ],
-        imgs: [
+        imgs4: [
           {
-            id: '1',
-            name: '100*600',
-            src: 'http://dummyimage.com/100x600',
+            id: '7',
+            name: '400*600',
+            src: 'http://dummyimage.com/400x600',
             href: '#'
           }, {
-            id: '2',
-            name: '200*600',
-            src: 'http://dummyimage.com/200x600',
+            id: '8',
+            name: '400*600',
+            src: 'http://dummyimage.com/400x600',
             href: '/page-progress'
           }, {
-            id: '3',
-            name: '300*300',
-            src: 'http://dummyimage.com/300x300',
+            id: '9',
+            name: '400*300',
+            src: 'http://dummyimage.com/400x300',
             href: '#'
           }, {
-            id: '4',
+            id: '10',
             name: '400*200',
             src: 'http://dummyimage.com/400x200',
             href: '#'
           }
-        ]
+        ],
+        imgs: []
       }
     },
     methods: {
@@ -178,9 +179,27 @@
     },
     mounted: function () {
       let that = this
+
       setTimeout(function () {
-        that.imgs1 = that.imgs
-      }, 3000)
+        that.imgs = that.imgs1
+        console.log('1')
+      }, 2000)
+      setTimeout(function () {
+        that.imgs = that.imgs2
+        console.log('2')
+      }, 4000)
+      setTimeout(function () {
+        that.imgs = that.imgs3
+        console.log('3')
+      }, 6000)
+      setTimeout(function () {
+        that.imgs = that.imgs4
+        console.log('4')
+      }, 8000)
+      //      setTimeout(function () {
+      //        that.imgs = that.imgs0
+      //        console.log('5')
+      //      }, 8000)
     }
   }
 </script>
