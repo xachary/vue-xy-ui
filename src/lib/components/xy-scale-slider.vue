@@ -44,6 +44,7 @@
       }
     },
     data () {
+      let that = this
       return {
         current: 0,
         cur: -1,
@@ -58,7 +59,9 @@
 
         sx: 0,
         mx: 0,
-        ex: 0
+        ex: 0,
+
+        array: that.imgs
       }
     },
     computed: {
@@ -69,6 +72,10 @@
     },
     watch: {
       imgs (nv, ov) {
+        let that = this
+        that.change()
+      },
+      array () {
         let that = this
         that.change()
       }
