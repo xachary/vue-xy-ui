@@ -44,6 +44,7 @@
     data () {
       return {
         current: 0,
+        cur: 0,
         paddingRSH: 0,
         wideRSH: 0,
         widthRSH: 0,
@@ -84,8 +85,9 @@
         that.imgs.splice(0, 0, that.imgs.pop())
       }
 
-      that.leftRSH = -(that.marginRSH * 2 + that.widthRSH) * that.current - that.marginRSH
-      that.ex = that.leftRSH * 750 / 2 / 100
+      //      that.leftRSH = -(that.marginRSH * 2 + that.widthRSH) * that.current - that.marginRSH
+      //      that.ex = that.leftRSH * 750 / 2 / 100
+      that.update()
 
       that.start()
     },
@@ -120,12 +122,10 @@
         if (that.mx - that.sx > 0) {
           if (wr - tr > cr) {
             that.current--
-            that.$emit('on-change', that.imgs[that.current], that.current)
           }
         } else if (that.mx - that.sx < 0) {
           if (tr > cr) {
             that.current++
-            that.$emit('on-change', that.imgs[that.current], that.current)
           }
         }
 
@@ -141,6 +141,13 @@
           that.current = that.imgs.length - 1
         }
 
+        //        console.log(that.cur, that.current)
+        if (that.cur !== that.current) {
+          that.cur = that.current
+
+          that.$emit('on-change', that.imgs[that.current], that.current)
+        }
+
         that.leftRSH = -(that.marginRSH * 2 + that.widthRSH) * that.current - that.marginRSH
 
         that.ex = that.leftRSH * 750 / 2 / 100
@@ -154,7 +161,6 @@
         that.stop()
         timer = setInterval(function () {
           that.current++
-          that.$emit('on-change', that.imgs[that.current], that.current)
           that.update()
         }, that.itv)
       }
