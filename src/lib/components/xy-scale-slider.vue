@@ -145,7 +145,7 @@
         if (that.cur !== that.current) {
           that.cur = that.current
 
-          that.$emit('on-change', that.imgs[that.current], that.current)
+          that.$emit('on-change', that.imgs[that.current], that.current, that.imgs.length)
         }
 
         that.leftRSH = -(that.marginRSH * 2 + that.widthRSH) * that.current - that.marginRSH

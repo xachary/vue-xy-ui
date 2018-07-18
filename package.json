@@ -1,7 +1,7 @@
 {
   "name": "vue-xy-ui",
   "description": "Some ui components by xachary",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "author": "xachary <xachary@qq.com>",
   "license": "MIT",
   "private": false,
@@ -13,7 +13,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
     "start": "npm run dev",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "push": "git push -u origin master"
   },
   "dependencies": {
     "vue": "^2.5.11",

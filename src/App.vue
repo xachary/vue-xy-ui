@@ -99,8 +99,8 @@
       onbottom () {
         alert('onbottom')
       },
-      onchange (item, index) {
-        console.log('onchange', item, index)
+      onchange (item, index, total) {
+        console.log('onchange', item, index, total)
       },
       onPullRefresh (stop) {
         setTimeout(function () {
