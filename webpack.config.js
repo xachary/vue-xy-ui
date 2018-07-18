@@ -26,6 +26,16 @@ module.exports = {
         from: 'src/lib/nuxt/xy-page-progress.vue',
         to: 'nuxt/xy-page-progress.vue',
         force: true
+      },
+      {
+        from: 'src/lib/scss/nuxt/page.scss',
+        to: 'nuxt/page.scss',
+        force: true
+      },
+      {
+        from: 'src/lib/scss/base.scss',
+        to: 'base.scss',
+        force: true
       }
     ])
   ],
