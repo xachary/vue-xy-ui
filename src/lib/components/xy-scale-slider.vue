@@ -94,7 +94,7 @@
         that.auto = false
         that.mx = touch.clientX
         that.leftRSH = (that.mx - that.sx + that.ex) / (750 / 2) * 100
-        if (that.sx != that.mx) {
+        if (that.sx !== that.mx) {
           e.preventDefault()
           e.stopPropagation()
         }
