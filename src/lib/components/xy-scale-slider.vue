@@ -1,6 +1,6 @@
 <template>
   <div class="xy-scale-slider"
-       :style="{'padding':`0 ${paddingRSH}vw`}">
+       :style="{'padding':`0 ${paddingRSH}vw`,'height':`${heightRSH}vw`}">
     <div :style="{'width':`${wideRSH}vw`,'left':`${leftRSH}vw`}"
          @touchstart="onTouchstart"
          @touchmove="onTouchmove"
