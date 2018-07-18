@@ -16,6 +16,8 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+
   export default {
     name: 'xy-page-progress',
     data: () => ({
