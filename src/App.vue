@@ -1,6 +1,7 @@
 <template>
   <div id="app"
        v-xy-pull-refresh="onPullRefresh">
+    <xy-page-progress></xy-page-progress>
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
     <xy-scale-slider width="640"
@@ -10,12 +11,67 @@
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
     <div id="demo">
+      <router-link tag="button"
+                   to="/page-progress"
+                   v-xy-moving-btn>路由加载
+      </router-link>
+      <router-view></router-view>
       <div class="keepTopOther"></div>
       <div id="keepTop"
            v-xy-keep-top>
         <button v-xy-moving-btn>keep-top & moving-btn</button>
       </div>
       <div class="keepTopOther"></div>
+      <section class="cats cats--empty">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </section>
+      <section class="cats cats--empty">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </section>
+      <section class="cats cats--empty">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </section>
+      <section class="cats cats--empty">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </section>
+      <section class="cats cats--empty">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </section>
     </div>
     <div class="lazy-load"
          style="width: 100px;height: 100px;border: 1px solid red;">
@@ -32,8 +88,10 @@
 
 <script>
   import Vue from 'vue'
+  import VueRouter from 'vue-router'
   import xyUI from './lib'
 
+  Vue.use(VueRouter)
   Vue.use(xyUI)
 
   export default {
@@ -112,15 +170,15 @@
 </script>
 
 <style lang="scss">
-  /*@import './lib/scss/style.scss';*/
+  @import './lib/scss/mixin';
 
   body {
     margin: 0;
   }
 
   #demo {
-    height: 200vh;
-    background: linear-gradient(black 0%, black 10%, white 10%, white 20%, black 20%, black 30%, white 30%, white 40%, black 40%, black 50%, white 50%, white 60%, black 60%, black 70%, white 70%, white 80%, black 80%, black 90%, white 90%, white 100%);
+    /*height: 200vh;*/
+    /*background: linear-gradient(black 0%, black 10%, white 10%, white 20%, black 20%, black 30%, white 30%, white 40%, black 40%, black 50%, white 50%, white 60%, black 60%, black 70%, white 70%, white 80%, black 80%, black 90%, white 90%, white 100%);*/
     .keepTopOther {
       height: 10vh;
       background-color: blue;
@@ -131,6 +189,29 @@
       background-color: yellow;
       line-height: 10vh;
       text-align: center;
+    }
+  }
+
+  .cats {
+    $cats-w: red;
+    margin-top: 10px;
+    @include well-out;
+    & > div {
+      font-size: 16px;
+      padding: rsh(35) 0 rsh(30) 0;
+      height: rsh(100);
+      background-color: yellow;
+      text-align: center;
+    }
+    &.cats--empty {
+      & > div {
+        @include well-item(3, 1, blue);
+      }
+    }
+    &.cats--tb {
+      & > div {
+        @include well-item(3, 1, blue, 'tb');
+      }
     }
   }
 </style>

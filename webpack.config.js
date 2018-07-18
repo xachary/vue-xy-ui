@@ -5,6 +5,7 @@ var ExtractSCSS = new ExtractTextPlugin({
   filename: 'vue-xy-ui.css',
   allChunks: true
 })
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -14,7 +15,19 @@ module.exports = {
     filename: 'build.js'
   },
   plugins: [
-    ExtractSCSS
+    ExtractSCSS,
+    new CopyWebpackPlugin([
+      {
+        from: 'src/lib/scss/_mixin.scss',
+        to: '_mixin.scss',
+        force: true
+      },
+      {
+        from: 'src/lib/nuxt/xy-page-progress.vue',
+        to: 'nuxt/xy-page-progress.vue',
+        force: true
+      }
+    ])
   ],
   module: {
     rules: [

@@ -44,7 +44,7 @@
     data () {
       return {
         current: 0,
-        cur: 0,
+        cur: -1,
         paddingRSH: 0,
         wideRSH: 0,
         widthRSH: 0,
