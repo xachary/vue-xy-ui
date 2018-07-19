@@ -16,6 +16,29 @@
                    v-xy-moving-btn>路由加载
       </router-link>
       <router-view></router-view>
+      <xy-list-status status="loading">
+      </xy-list-status>
+      <hr>
+      <xy-list-status status="nomore">
+      </xy-list-status>
+      <hr>
+      <xy-list-status status="nomore">
+        <article slot="nomore"
+                 class="nomore">
+          <div>
+            <div><span>没更多商品了</span></div>
+          </div>
+        </article>
+      </xy-list-status>
+      <hr>
+      <xy-list-status status="empty"></xy-list-status>
+      <hr>
+      <xy-list-status status="empty">
+        <img slot="empty"
+             src="./nomore.png"
+             alt="暂无内容"
+             class="empty">
+      </xy-list-status>
       <div class="keepTopOther"></div>
       <div id="keepTop"
            v-xy-keep-top>
@@ -246,6 +269,76 @@
     &.cats--tb {
       & > div {
         @include well-item(3, 1, blue, 'tb');
+      }
+    }
+  }
+
+  img.empty {
+    width: rsh(212);
+    height: rsh(220);
+  }
+
+  article.nomore {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    font-style: normal;
+    & > div {
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+      color: #cc9054;
+      font-weight: 300;
+      font-size: rsh(32);
+      line-height: rsh(38*2);
+      padding: 0 rsh(20);
+
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #cc9054;
+        left: 0;
+        top: 50%;
+        z-index: 1;
+        transform: scale(1, .5);
+        margin-top: -1px;
+      }
+
+      & > div {
+        position: relative;
+        width: auto;
+        z-index: 2;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 0 rsh(10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          margin: 0 rsh(7*2);
+          text-align: center;
+        }
+        &:after, &:before {
+          content: '';
+          vertical-align: middle;
+          color: #cc9054;
+          font-size: rsh(12*2);
+          width: rsh(6*2);
+          height: rsh(6*2);
+          text-align: center;
+          transform: scale(.6, 1) rotate(45deg);
+          position: relative;
+          background-color: #cc9054;
+        }
+      }
+      &.footer-title {
+        width: rsh(150*2);
+        & > div {
+          width: rsh((16 * 6 + 6 * 4 + 3 * 3)*2);
+        }
       }
     }
   }
