@@ -1,7 +1,7 @@
 <template>
   <div class="xy-list-status"
        v-if="status!==''"
-       :class="{empty:status==='empty',nomore:status==='nomore',loading:status==='loading'}"
+       :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading'}"
        :style="{height:status==='empty'?`calc(100vh - ${top}px)`:'auto'}">
     <slot name="empty"
           v-if="status==='empty'">
@@ -48,30 +48,32 @@
     font-style: normal;
     font-size: rsh(28);
     color: rgba(166, 166, 166, 1);
-    & > div {
-      line-height: rsh(80);
-      @keyframes xy-list-status__char {
-        0% {
-          top: 0;
+    line-height: rsh(80);
+    &.xy-list-status--loading {
+      & > div {
+        @keyframes xy-list-status__char {
+          0% {
+            top: 0;
+          }
+          50% {
+            top: rsh(10);
+          }
+          100% {
+            top: 0;
+          }
         }
-        50% {
-          top: rsh(10);
-        }
-        100% {
-          top: 0;
-        }
-      }
-      & > span {
-        position: relative;
-        animation: xy-list-status__ .6s ease-in infinite;
-        &:nth-child(1) {
-          animation-delay: 0s;
-        }
-        &:nth-child(2) {
-          animation-delay: .2s;
-        }
-        &:nth-child(3) {
-          animation-delay: .4s;
+        & > span {
+          position: relative;
+          animation: xy-list-status__char .6s ease-in infinite;
+          &:nth-child(1) {
+            animation-delay: 0s;
+          }
+          &:nth-child(2) {
+            animation-delay: .2s;
+          }
+          &:nth-child(3) {
+            animation-delay: .4s;
+          }
         }
       }
     }
