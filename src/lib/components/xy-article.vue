@@ -14,16 +14,29 @@
         default: ''
       }
     },
+    watch: {
+      des: function (n) {
+        let that = this
+        that.update()
+      }
+    },
+    methods: {
+      update () {
+        let that = this
+        if (that.des) {
+          var text = Vue.extend({
+            template: `<div>${that.des.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4</div>')}</div>`
+          })
+          new text().$mount('#xy-article__point')
+        }
+      }
+    },
     data () {
       return {}
     },
-    mounted: async function () {
+    mounted: function () {
       let that = this
-      await Vue.nextTick()
-      var text = Vue.extend({
-        template: `<div>${that.des.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4</div>')}</div>`
-      })
-      new text().$mount('#xy-article__point')
+      that.update()
     }
   }
 </script>

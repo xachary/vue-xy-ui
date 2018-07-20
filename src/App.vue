@@ -10,8 +10,9 @@
                      :imgs="imgs"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
+    <xy-article des="123123"></xy-article>
     <div class="lazy-load">
-      <img v-lazy="'http://dummyimage.com/300x600'">
+      <img v-lazy="'http://dummyimage.com/300x100'">
     </div>
     <div class="lazy-load"
          style="width: 100px;height: 100px;border: 1px solid red;">
