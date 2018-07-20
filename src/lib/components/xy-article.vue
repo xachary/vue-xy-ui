@@ -1,5 +1,6 @@
 <template>
-  <div class="xy-article">
+  <div class="xy-article"
+       v-lazy>
     <div id="xy-article__point"></div>
   </div>
 </template>
