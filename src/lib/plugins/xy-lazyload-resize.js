@@ -85,6 +85,9 @@ export default {
   //导致上一张图片大小遗留影响到loading图片.
   adapter: {
     loaded ({el}, formCache) {
+      el.classList.remove('loading')
+      el.classList.remove('error')
+      el.classList.add('loaded')
       if (el.classList.contains('lazy-contain') || el.classList.contains('lazy-cover')) {
         if (el.classList.contains('loading')) {
           //            console.warn('loaded')
@@ -97,9 +100,6 @@ export default {
           el.style.marginLeft = null
           el.style.marginTop = null
         }
-        el.classList.remove('loading')
-        el.classList.remove('error')
-        el.classList.add('loaded')
 
         let parent = el.parentElement
 
@@ -122,13 +122,10 @@ export default {
     },
     loading ({el}) {
       if (!el.classList.contains('loading')) {
+        el.classList.remove('loaded')
+        el.classList.remove('error')
+        el.classList.add('loading')
         if (el.classList.contains('lazy-contain') || el.classList.contains('lazy-cover')) {
-          //            console.warn('loading')
-
-          el.classList.remove('loaded')
-          el.classList.remove('error')
-          el.classList.add('loading')
-          el.classList.remove('resize')
           el.style.width = null
           el.style.height = null
           el.style.top = null
@@ -143,12 +140,14 @@ export default {
       el.classList.remove('loading')
       el.classList.add('error')
       el.classList.remove('resize')
-      el.style.width = null
-      el.style.height = null
-      el.style.top = null
-      el.style.left = null
-      el.style.marginLeft = null
-      el.style.marginTop = null
+      if (el.classList.contains('lazy-contain') || el.classList.contains('lazy-cover')) {
+        el.style.width = null
+        el.style.height = null
+        el.style.top = null
+        el.style.left = null
+        el.style.marginLeft = null
+        el.style.marginTop = null
+      }
     }
   }
 }

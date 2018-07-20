@@ -10,6 +10,19 @@
                      :imgs="imgs"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
+    <div class="lazy-load">
+      <img v-lazy="'http://dummyimage.com/300x600'">
+    </div>
+    <div class="lazy-load"
+         style="width: 100px;height: 100px;border: 1px solid red;">
+      <img v-lazy="'http://dummyimage.com/300x600'"
+           class="lazy-cover">
+    </div>
+    <div class="lazy-load"
+         style="width: 100px;height: 100px;border: 1px solid red;">
+      <img v-lazy="'http://dummyimage.com/300x600'"
+           class="lazy-contain">
+    </div>
     <div id="demo">
       <router-link tag="button"
                    to="/page-progress"
@@ -95,16 +108,6 @@
         <div>2</div>
         <div>1</div>
       </section>
-    </div>
-    <div class="lazy-load"
-         style="width: 100px;height: 100px;border: 1px solid red;">
-      <img v-lazy="'http://dummyimage.com/300x600'"
-           class="lazy-cover">
-    </div>
-    <div class="lazy-load"
-         style="width: 100px;height: 100px;border: 1px solid red;">
-      <img v-lazy="'http://dummyimage.com/300x600'"
-           class="lazy-contain">
     </div>
   </div>
 </template>

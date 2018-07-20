@@ -33,20 +33,25 @@
   justify-content: center;
   overflow: hidden;
   flex-direction: column;
+  align-items: center;
   img {
     display: block;
     &[lazy=loading], &[lazy=error] {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      &.lazy-contain, &.lazy-cover {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
     }
     &[lazy=loading] {
       font-size: 12px;
-      margin-top: -8px;
-      margin-left: -8px;
       height: 16px;
       width: 16px;
       animation: rotating 1s linear infinite;
+      &.lazy-contain, &.lazy-cover {
+        margin-top: -8px;
+        margin-left: -8px;
+      }
     }
     &[lazy=error] {
       height: 46px;
