@@ -1,11 +1,14 @@
 <template>
-  <div class="xy-article"
-       v-lazy>
+  <div class="xy-article">
     <div id="xy-article__point"></div>
   </div>
 </template>
 <script>
   import Vue from 'vue'
+  import xyLazyloadResize from '../plugins/xy-lazyload-resize'
+  import VueLazyload from 'vue-lazyload'
+
+  Vue.use(VueLazyload, xyLazyloadResize)
 
   export default {
     name: 'xy-article',
@@ -28,9 +31,9 @@
       }
     },
     methods: {
-      replace (txt) {
-        return txt.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, `<div class="lazy-load">$1v-lazy="'$3'$4</div>`)
-      },
+      //      replace (txt) {
+      //        return txt.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, `<div class="lazy-load">$1v-lazy="'$3'$4</div>`)
+      //      },
       update () {
         let that = this
         if (that.des) {
@@ -81,9 +84,10 @@
           //              value: tmp
           //            })
           //          }
-
+          let tpl = `<div>${that.des.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4</div>')}</div>`
+          console.log(tpl)
           var text = Vue.extend({
-            template: `<div>${that.des.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4</div>')}</div>`
+            template: tpl
           })
           new text().$mount('#xy-article__point')
         }

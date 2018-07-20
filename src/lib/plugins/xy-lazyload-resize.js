@@ -119,6 +119,7 @@ export default {
       }
     },
     loading ({el}) {
+      debugger
       if (!el.classList.contains('loading')) {
         el.classList.remove('loaded')
         el.classList.remove('error')
