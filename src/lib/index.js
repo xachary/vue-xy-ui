@@ -4,8 +4,8 @@ import xyKeepTop from './directives/xy-keep-top'
 import xyMovingBtn from './directives/xy-moving-btn'
 import xyPullRefresh from './directives/xy-pull-refresh'
 
-// import xyLazyloadResize from './plugins/xy-lazyload-resize'
-// import VueLazyload from 'vue-lazyload'
+import xyLazyloadResize from './plugins/xy-lazyload-resize'
+import VueLazyload from 'vue-lazyload'
 
 import xyArticle from './components/xy-article.vue'
 import xyReachBottom from './components/xy-reach-bottom.vue'
@@ -18,8 +18,8 @@ const xyUI = {
     Vue.directive(xyMovingBtn.name, xyMovingBtn)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
 
-    // 移动到xy-article, 解决一个奇怪的依赖关系
-    // Vue.use(VueLazyload, xyLazyloadResize)
+    // 再次, 解决一个奇怪的依赖关系
+    Vue.use(VueLazyload, xyLazyloadResize)
 
     // 尽量按依赖关系按顺序注册
     Vue.component(xyArticle.name, xyArticle)
