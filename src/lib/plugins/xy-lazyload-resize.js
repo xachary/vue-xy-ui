@@ -1,5 +1,3 @@
-import VueLazyload from 'vue-lazyload'
-
 function baseSize (info, size) {
   return {
     ot: {
