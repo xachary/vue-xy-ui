@@ -6,9 +6,9 @@
 <script>
   import Vue from 'vue'
   import xyLazyloadResize from '../plugins/xy-lazyload-resize'
-  import VueLazyload from 'vue-lazyload'
+  //  import VueLazyload from 'vue-lazyload'
 
-  Vue.use(VueLazyload, xyLazyloadResize)
+  //  Vue.use(VueLazyload, xyLazyloadResize)
 
   export default {
     name: 'xy-article',

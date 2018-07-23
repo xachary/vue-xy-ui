@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+### 依赖Vue库, vue-lazyload库
+
 ``` bash
 # install dependencies
 npm install
