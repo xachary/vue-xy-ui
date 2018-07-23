@@ -142,8 +142,8 @@ if (process.env.NODE_ENV === 'production') {
       sourceMap: true,
       compress: {
         warnings: false,
-        drop_debugger: false,
-        drop_console: false
+        drop_debugger: true,
+        drop_console: true
       }
     }),
     new webpack.LoaderOptionsPlugin({

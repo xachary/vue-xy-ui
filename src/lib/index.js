@@ -5,12 +5,14 @@ import xyMovingBtn from './directives/xy-moving-btn'
 import xyPullRefresh from './directives/xy-pull-refresh'
 
 import xyLazyloadResize from './plugins/xy-lazyload-resize'
-// import VueLazyload2 from 'vue-lazyload'
+// import VueLazyload from 'vue-lazyload'
 
 import xyArticle from './components/xy-article.vue'
 import xyReachBottom from './components/xy-reach-bottom.vue'
 import xyScaleSlider from './components/xy-scale-slider.vue'
 import xyListStatus from './components/xy-list-status.vue'
+
+import { Toast } from './components/mint-ui'
 
 const xyUI = {
   install (Vue) {
@@ -26,6 +28,9 @@ const xyUI = {
     Vue.component(xyReachBottom.name, xyReachBottom)
     Vue.component(xyScaleSlider.name, xyScaleSlider)
     Vue.component(xyListStatus.name, xyListStatus)
+
+    Vue.Toast = Toast
+    Vue.prototype.$toast = Toast
   }
 }
 
@@ -35,4 +40,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default xyUI
 
-export { xyLazyloadResize }
+export {
+  xyLazyloadResize,
+  Toast
+}
