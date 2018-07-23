@@ -85,7 +85,7 @@
           //            })
           //          }
           let tpl = `<div>${that.des.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4</div>')}</div>`
-          console.log(tpl)
+          //          console.log(tpl)
           var text = Vue.extend({
             template: tpl
           })

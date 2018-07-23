@@ -4,26 +4,37 @@
     <!--<xy-page-progress></xy-page-progress>-->
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
+    <div class="lazy-load"
+         style="width: 150px;height: 250px;border: 1px solid red;">
+      <img v-lazy="imgTest"
+           class="lazy-cover"
+           :key="imgTest">
+    </div>
+    <div class="lazy-load"
+         style="width: 250px;height: 150px;border: 1px solid blue;">
+      <img v-lazy="imgTest2"
+           class="lazy-contain"
+           :key="imgTest2">
+    </div>
+    <div class="lazy-load"
+         style="width: 200px;height: 200px;border: 1px solid green;">
+      <img v-lazy="imgTest3"
+           class="lazy-contain"
+           :key="imgTest3">
+    </div>
+    <button @click="onChangeImg"
+            style="background-color: #eee;padding: 10px;">更换图片
+    </button>
     <xy-scale-slider width="640"
                      height="290"
                      interval="3"
                      :imgs="imgs"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
-    <xy-article :des="des"></xy-article>
     <div class="lazy-load">
       <img v-lazy="'http://dummyimage.com/300x100'">
     </div>
-    <div class="lazy-load"
-         style="width: 100px;height: 100px;border: 1px solid red;">
-      <img v-lazy="'http://dummyimage.com/300x600'"
-           class="lazy-cover">
-    </div>
-    <div class="lazy-load"
-         style="width: 100px;height: 100px;border: 1px solid red;">
-      <img v-lazy="'http://dummyimage.com/300x600'"
-           class="lazy-contain">
-    </div>
+    <xy-article :des="des"></xy-article>
     <div id="demo">
       <router-link tag="button"
                    to="/page-progress"
@@ -202,7 +213,11 @@
             href: '#'
           }
         ],
-        imgs: []
+        imgs: [],
+        count: 1,
+        imgTest: '1',
+        imgTest2: '2',
+        imgTest3: '3'
       }
     },
     methods: {
@@ -216,6 +231,13 @@
         setTimeout(function () {
           stop()
         }, 2000)
+      },
+      onChangeImg () {
+        let that = this
+        that.imgTest = `http://dummyimage.com/${that.count * 100}x150`
+        that.imgTest2 = `http://dummyimage.com/150x${that.count * 100}`
+        that.imgTest3 = `http://dummyimage.com/${that.count * 100}x${that.count * 100}`
+        that.count++
       }
     },
     mounted: function () {
@@ -225,18 +247,18 @@
         that.imgs = that.imgs1
         console.log('1')
       }, 2000)
-      setTimeout(function () {
-        that.imgs = that.imgs2
-        console.log('2')
-      }, 4000)
-      setTimeout(function () {
-        that.imgs = that.imgs3
-        console.log('3')
-      }, 6000)
-      setTimeout(function () {
-        that.imgs = that.imgs4
-        console.log('4')
-      }, 8000)
+      //      setTimeout(function () {
+      //        that.imgs = that.imgs2
+      //        console.log('2')
+      //      }, 4000)
+      //      setTimeout(function () {
+      //        that.imgs = that.imgs3
+      //        console.log('3')
+      //      }, 6000)
+      //      setTimeout(function () {
+      //        that.imgs = that.imgs4
+      //        console.log('4')
+      //      }, 8000)
       //      setTimeout(function () {
       //        that.imgs = that.imgs0
       //        console.log('5')

@@ -30,6 +30,10 @@ function contain (el, baseInfo) {
 }
 
 function cover (el, baseInfo) {
+  console.log('baseInfo.wt.width === baseInfo.ot.width && baseInfo.wt.height >= baseInfo.ot.height')
+  console.log(`${baseInfo.wt.width} === ${baseInfo.ot.width} && ${baseInfo.wt.height} >= ${baseInfo.ot.height}`)
+  console.log('baseInfo.ht.height === baseInfo.ot.height && baseInfo.ht.width >= baseInfo.ot.width')
+  console.log(`${baseInfo.ht.height} === ${baseInfo.ot.height} && ${baseInfo.ht.width} >= ${baseInfo.ot.width}`)
   if (baseInfo.wt.width === baseInfo.ot.width && baseInfo.wt.height >= baseInfo.ot.height) {
     el.style.width = `${baseInfo.wt.width}px`
     el.style.height = `${baseInfo.wt.height}px`
@@ -41,6 +45,10 @@ function cover (el, baseInfo) {
     el.style.top = '0px'
     el.style.left = `${(-(baseInfo.ht.width - baseInfo.ot.width)) / 2}px`
   }
+  console.log('el.style.width', el.style.width)
+  console.log('el.style.height', el.style.height)
+  console.log('el.style.top', el.style.top)
+  console.log('el.style.left', el.style.left)
 }
 
 window.addEventListener('resize', function () {
@@ -101,6 +109,9 @@ export default {
 
         let parent = el.parentElement
 
+        console.log('el.offsetWidth', el.offsetWidth, 'el.offsetHeight', el.offsetHeight)
+        console.log('parent.offsetWidth', parent.offsetWidth, 'parent.offsetHeight', parent.offsetHeight)
+
         let baseInfo = baseSize({
           width: el.offsetWidth,
           height: el.offsetHeight
@@ -108,6 +119,9 @@ export default {
           width: parent.offsetWidth,
           height: parent.offsetHeight
         })
+
+        console.log('baseInfo:')
+        console.log(JSON.stringify(baseInfo))
 
         el.classList.add('resize')
 

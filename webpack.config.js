@@ -142,12 +142,21 @@ if (process.env.NODE_ENV === 'production') {
       sourceMap: true,
       compress: {
         warnings: false,
-        drop_debugger: true,
-        drop_console: true
+        drop_debugger: false,
+        drop_console: false
       }
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
   ])
+
+  module.exports.externals = {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
+  }
 }
