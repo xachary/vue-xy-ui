@@ -4,31 +4,52 @@
     <!--<xy-page-progress></xy-page-progress>-->
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
-    <div class="lazy-load"
-         style="width: 150px;height: 250px;border: 1px solid red;">
-      <img v-lazy="imgTest"
-           class="lazy-cover"
-           :key="imgTest">
-    </div>
+    <mt-field label="用户名"
+              placeholder="请输入用户名"
+              v-model="username"
+              :state="'success'"></mt-field>
+    <mt-field label="密码"
+              placeholder="请输入密码"
+              type="password"
+              v-model="password"
+              :state="'error'"></mt-field>
+    <mt-field label="验证码"
+              v-model="captcha"
+              :state="'error'">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532502195712&di=1c7b21d5211d1197fa47fae5b008ce66&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F012b5156dbbc4f6ac72531cbe341a8.png%40900w_1l_2o_100sh.jpg">
+    </mt-field>
+    <!--<div class="lazy-load"-->
+    <!--style="width: 150px;height: 250px;border: 1px solid red;">-->
+    <!--<img v-lazy="imgTest"-->
+    <!--class="lazy-cover"-->
+    <!--:key="imgTest"-->
+    <!--:data-img="imgTest3"-->
+    <!--:data-index="0"-->
+    <!--v-xy-pop-image:change="onPopChange">-->
+    <!--</div>-->
     <div class="lazy-load"
          style="width: 250px;height: 150px;border: 1px solid blue;">
       <img v-lazy="imgTest2"
            class="lazy-contain"
-           :key="imgTest2">
+           :key="imgTest2"
+           :data-img="imgTest2"
+           :data-index="1"
+           v-xy-pop-image:change="onPopChange">
     </div>
-    <div class="lazy-load"
-         style="width: 200px;height: 200px;border: 1px solid green;">
-      <img v-lazy="imgTest3"
-           class="lazy-contain"
-           :key="imgTest3">
-    </div>
+    <!--<div class="lazy-load"-->
+    <!--style="width: 200px;height: 200px;border: 1px solid green;">-->
+    <!--<img v-lazy="imgTest3"-->
+    <!--class="lazy-contain"-->
+    <!--:key="imgTest3"-->
+    <!--v-xy-pop-image:change="onPopChange">-->
+    <!--</div>-->
     <button @click="onChangeImg"
             style="background-color: #eee;padding: 10px;">更换图片
     </button>
     <xy-scale-slider width="640"
                      height="290"
                      interval="3"
-                     :imgs="imgs"
+                     :imgs="imgs3"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
     <div class="lazy-load">
@@ -131,6 +152,10 @@
   import { xyLazyloadResize } from './lib'
   import xyUI from './lib'
 
+  import MessageBox from './lib/mint-ui/packages/message-box'
+  import Toast from './lib/mint-ui/packages/toast'
+  import Indicator from './lib/mint-ui/packages/indicator'
+
   Vue.use(VueRouter)
   Vue.use(VueLazyload, xyLazyloadResize)
   Vue.use(xyUI)
@@ -139,7 +164,7 @@
     name: 'app',
     data () {
       return {
-        des: `<p>　　原标题：（出访）习近平抵达阿布扎比开始对阿拉伯联合酋长国进行国事访问&nbsp;</p>
+        des2: `<p>　　原标题：（出访）习近平抵达阿布扎比开始对阿拉伯联合酋长国进行国事访问&nbsp;</p>
 <div class="img_wrapper"><img src="http://dummyimage.com/336x280" alt="7月19日，国家主席习近平乘专机抵达阿布扎比，开始对阿拉伯联合酋长国进行国事访问。阿联酋副总统兼总理穆罕默德在机场为习近平举行迎接仪式。这是习近平和夫人彭丽媛在阿联酋副总统兼总理穆罕默德、阿布扎比王储穆罕默德陪同下前往检阅大厅。 新华社记者李学仁摄" data-mcesrc="http://www.xinhuanet.com/world/2018-07/20/1123151532_15320241862821n.jpg" data-mceselected="1" data-link=""><span class="img_descr">　　7月19日，国家主席习近平乘专机抵达阿布扎比，开始对阿拉伯联合酋长国进行国事访问。阿联酋副总统兼总理穆罕默德在机场为习近平举行迎接仪式。这是习近平和夫人彭丽媛在阿联酋副总统兼总理穆罕默德、阿布扎比王储穆罕默德陪同下前往检阅大厅。 新华社记者李学仁摄</span></div>
 <p>　　新华社阿布扎比7月19日电（记者苏小坡　李忠发　郑开君）19日，国家主席习近平乘专机抵达阿布扎比，开始对阿拉伯联合酋长国进行国事访问。&nbsp;</p>
 <p>　　当习近平乘坐的专机进入阿联酋领空时，阿联酋空军12架战机升空护航。当地时间下午5时40分许，专机抵达阿布扎比总统机场。习近平和夫人彭丽媛步出舱门，阿联酋副总统兼总理穆罕默德、阿布扎比王储穆罕默德在廊桥口热情迎接。阿联酋儿童向习近平和彭丽媛献上鲜花。&nbsp;</p>
@@ -153,6 +178,7 @@
 <p>　　中国驻阿联酋大使倪坚也到机场迎接。&nbsp;</p>
 <p>　　在结束对阿联酋的国事访问后，习近平还将对塞内加尔、卢旺达、南非进行国事访问，出席在南非约翰内斯堡举行的金砖国家领导人第十次会晤，过境毛里求斯并进行友好访问。（完）</p>
 <p class="show_author">责任编辑：张玉 </p>`,
+        des: '<p><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span></p><p><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'><img src=\'https://st.be-linker.com/data2/var/upload/ueditor/jsp/upload/image/20180723/1532281397085068136.jpg\' title=\'1532281397085068136.jpg\' alt=\'20170411_a5f378bc72ee57dc72869lsi6hl156v8_sp.jpg\'/></span></p><p><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持<img src=\'https://st.be-linker.com/data2/var/upload/ueditor/jsp/upload/image/20180726/1532563756668096323.png\' title=\'1532563756668096323.png\' alt=\'QQ截图20180117090358.png\' width=\'776\' height=\'428\' style=\'width: 776px; height: 428px;\'/></span></span></p><p><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span><span style=\'color: rgb(51, 51, 51); font-family: &quot;Arial Normal&quot;, Arial; font-size: 14px;\'>各级党委和政府要按照党中央部署和要求，按照“五位一体”总体布局和“四个全面”战略布局，坚持发展第一要务，坚持改革开放，坚持以新发展理念引领发展，坚持</span></span></span></p>',
         imgs0: [],
         imgs1: [
           {
@@ -218,9 +244,12 @@
         ],
         imgs: [],
         count: 1,
-        imgTest: '1',
-        imgTest2: '2',
-        imgTest3: '3'
+        imgTest: 'http://dummyimage.com/50x150',
+        imgTest2: 'http://dummyimage.com/70x150',
+        imgTest3: 'http://dummyimage.com/90x150',
+        username: '',
+        password: '',
+        captcha: ''
       }
     },
     methods: {
@@ -228,7 +257,7 @@
         alert('onbottom')
       },
       onchange (item, index, total) {
-        console.log('onchange', item, index, total)
+        //        console.log('onchange', item, index, total)
       },
       onPullRefresh (stop) {
         setTimeout(function () {
@@ -241,15 +270,21 @@
         that.imgTest2 = `http://dummyimage.com/150x${that.count * 100}`
         that.imgTest3 = `http://dummyimage.com/${that.count * 100}x${that.count * 100}`
         that.count++
+      },
+      onPopChange (type, data) {
+        let that = this
+        //        debugger
+        // 这里有setter, 可以改变预览图
+        data.img = that.imgTest3
       }
     },
     mounted: function () {
       let that = this
 
-      setTimeout(function () {
-        that.imgs = that.imgs1
-        console.log('1')
-      }, 2000)
+      //      setTimeout(function () {
+      //        that.imgs = that.imgs1
+      //        console.log('1')
+      //      }, 2000)
       //      setTimeout(function () {
       //        that.imgs = that.imgs2
       //        console.log('2')
@@ -266,11 +301,72 @@
       //        that.imgs = that.imgs0
       //        console.log('5')
       //      }, 8000)
+
+      //      setTimeout(function () {
+      //        Indicator.open()
+      //      }, 2000)
+      //      setTimeout(function () {
+      //        Toast({
+      //          message: 'toast',
+      //          duration: 2000
+      //        })
+      //      }, 4000)
+      //      setTimeout(function () {
+      //        MessageBox({
+      //          title: '出错',
+      //          message: 'message-box'
+      //        })
+      //      }, 6000)
+
+      //      setTimeout(function () {
+      //        that.$indicator.open()
+      //      }, 2000)
+      //      setTimeout(function () {
+      //        that.$toast({
+      //          message: 'toast',
+      //          duration: 2000
+      //        })
+      //      }, 4000)
+      //      setTimeout(function () {
+      //        that.$messageBox({
+      //          title: '出错',
+      //          message: 'message-box'
+      //        })
+      //      }, 6000)
+      //      that.$toast({
+      //        message: '已添加',
+      //        duration: 100000,
+      //        iconClass: 'mintui mintui-success xy-mintui-extend-icon'
+      //      })
+      //      that.$toast({
+      //        message: '失败',
+      //        duration: 100000,
+      //        iconClass: 'mintui mintui-field-error xy-mintui-extend-icon'
+      //      })
+      console.log(that.$formatDate(new Date(), 'yyyy-MM-dd'))
+      console.log(that.$relativeDate(new Date()))
+
+      //      setTimeout(function () {
+      //        that.imgs3 = that.imgs4
+      //        debugger
+      //      }, 3000)
+
+      setTimeout(function () {
+        //        debugger
+        // 这里update, 也可以改变预览图
+        //        that.imgTest = that.imgTest2
+      }, 3000)
+      setTimeout(function () {
+        //        debugger
+        // 这里update, 也可以改变预览图
+        //        that.imgTest = that.imgTest3
+      }, 8000)
     }
   }
 </script>
 
 <style lang="scss">
+  @import './lib/mint-ui/lib/style.css';
   @import './lib/scss/mixin';
 
   body {

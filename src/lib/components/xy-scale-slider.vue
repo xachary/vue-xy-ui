@@ -77,7 +77,7 @@
     mounted: function () {
       let that = this
       that.change()
-      //      that.start()
+      that.start()
     },
     methods: {
       onTouchstart ({touches: [touch]}) {
@@ -118,7 +118,7 @@
         }
 
         that.update()
-        //        that.start()
+        that.start()
       },
       change (force) {
         let that = this
@@ -160,6 +160,9 @@
         that.stop()
         timer = setInterval(function () {
           that.current++
+          if (that.current >= that.imgs.length) {
+            that.current = 0
+          }
           that.update()
         }, that.itv)
       }

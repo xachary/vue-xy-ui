@@ -7,6 +7,8 @@ var ExtractSCSS = new ExtractTextPlugin({
 })
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+// const postCSSPlugins = require('./postcss.config');
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -40,6 +42,11 @@ module.exports = {
       {
         from: 'src/lib/style/normalize-8.0.0.css',
         to: 'style/normalize-8.0.0.css',
+        force: true
+      },
+      {
+        from: 'src/lib/mint-ui/lib/style.css',
+        to: 'mint-ui/lib/style.css',
         force: true
       }
     ])
@@ -80,7 +87,8 @@ module.exports = {
             'scss': [
               'vue-style-loader',
               'css-loader',
-              'sass-loader'
+              'sass-loader',
+              'postcss-loader'
             ]
             // 'scss': ExtractTextPlugin.extract({
             //   fallback: 'vue-style-loader',
@@ -158,11 +166,11 @@ if (process.env.NODE_ENV === 'production') {
       commonjs2: 'vue',
       amd: 'vue'
     },
-    VueLazyload: {
-      root: 'VueLazyload',
-      commonjs: 'VueLazyload',
-      commonjs2: 'VueLazyload',
-      amd: 'VueLazyload'
+    'vue-lazyload': {
+      root: 'vue-lazyload',
+      commonjs: 'vue-lazyload',
+      commonjs2: 'vue-lazyload',
+      amd: 'vue-lazyload'
     }
   }
 }

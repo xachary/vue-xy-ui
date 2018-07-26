@@ -5,10 +5,6 @@
 </template>
 <script>
   import Vue from 'vue'
-  import xyLazyloadResize from '../plugins/xy-lazyload-resize'
-  //  import VueLazyload from 'vue-lazyload'
-
-  //  Vue.use(VueLazyload, xyLazyloadResize)
 
   export default {
     name: 'xy-article',
@@ -84,7 +80,8 @@
           //              value: tmp
           //            })
           //          }
-          let tpl = `<div>${that.des.replace(/(<img.*?)(src=")(.*?)(".*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4</div>')}</div>`
+          //          let tpl = `<div>${that.des.replace(/(<img.*?)(src=["'])(.*?)(["'].*?)(.*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4 v-xy-pop-image data-img="$3" data-index="0" $5</div>')}</div>`
+          let tpl = `<div>${that.des.replace(/(<img.*?)(src=["'])(.*?)(["'])(.*?>)/g, '<div class="lazy-load"><img v-lazy="\'$3\'" v-xy-pop-image data-img="$3"></div>')}</div>`
           //          console.log(tpl)
           var text = Vue.extend({
             template: tpl
@@ -104,3 +101,12 @@
     }
   }
 </script>
+
+<style>
+  .xy-article {
+    img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+</style>

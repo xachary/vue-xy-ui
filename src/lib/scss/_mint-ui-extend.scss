@@ -1,0 +1,16 @@
+@import "./mixin";
+
+.mintui {
+  &.xy-mintui-extend-icon {
+    font-size: rsh(60);
+  }
+}
+
+.mint-field-other {
+  & > img {
+    width: 100px;
+    height: 48px;
+    position: relative;
+    left: 10px;
+  }
+}
