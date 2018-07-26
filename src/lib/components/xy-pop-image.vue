@@ -4,7 +4,6 @@
        @touchstart.stop
        @touchmove.stop>
     <div class="blk-pop-image-bg"></div>
-    {{done}} - {{loading}}
     <img class="blk-pop-image-img"
          :class="{done:done}"
          :src="img"

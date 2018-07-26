@@ -33,14 +33,16 @@ export default {
     if (instance.visible) return
     document.body.appendChild(instance.$el)
 
-    // debugger
-    if (handlers.has(onChange)) {
-      let els = handlers.get(onChange)
-      els.push(el)
-      handlers.set(onChange, els)
-    } else {
-      handlers.set(onChange, [el])
-      instance.$on('on-change', onChange)
+    if (onChange) {
+      // debugger
+      if (handlers.has(onChange)) {
+        let els = handlers.get(onChange)
+        els.push(el)
+        handlers.set(onChange, els)
+      } else {
+        handlers.set(onChange, [el])
+        instance.$on('on-change', onChange)
+      }
     }
     // debugger
     btnClickCb = btnClick.bind({}, el)
@@ -49,15 +51,16 @@ export default {
     clicks.set(el, btnClickCb)
     // debugger
   },
-  unbind: function (el, {value: onNext}) {
+  unbind: function (el, {value: onChange}) {
     if (instance) {
       instance.visible = false
     }
-    // handlers.delete(onNext)
-    // debugger
-    let els = handlers.get(onNext)
-    els.splice(els.indexOf(el), 1)
-    handlers.set(onNext, els)
+    if (onChange) {
+      // debugger
+      let els = handlers.get(onChange)
+      els.splice(els.indexOf(el), 1)
+      handlers.set(onChange, els)
+    }
     // debugger
     let hd = clicks.get(el)
     el.removeEventListener('click', hd)
