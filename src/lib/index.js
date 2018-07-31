@@ -8,17 +8,15 @@ import xyPopImage from './directives/xy-pop-image'
 import xyLazyloadResize from './plugins/xy-lazyload-resize'
 // import VueLazyload from 'vue-lazyload'
 
-import MessageBox from './mint-ui/packages/message-box'
-import Toast from './mint-ui/packages/toast'
-import Indicator from './mint-ui/packages/indicator'
-import Field from './mint-ui/packages/field'
+// import MessageBox from './mint-ui/packages/message-box'
+// import Toast from './mint-ui/packages/toast'
+// import Indicator from './mint-ui/packages/indicator'
+// import Field from './mint-ui/packages/field'
 
 import xyArticle from './components/xy-article.vue'
 import xyReachBottom from './components/xy-reach-bottom.vue'
 import xyScaleSlider from './components/xy-scale-slider.vue'
 import xyListStatus from './components/xy-list-status.vue'
-
-import xyPageTitle from './mixins/xy-page-title'
 
 import {
   formatDate,
@@ -41,13 +39,13 @@ const xyUI = {
     Vue.component(xyScaleSlider.name, xyScaleSlider)
     Vue.component(xyListStatus.name, xyListStatus)
 
-    Vue.MessageBox = MessageBox
-    Vue.prototype.$messageBox = MessageBox
-    Vue.Toast = Toast
-    Vue.prototype.$toast = Toast
-    Vue.Indicator = Indicator
-    Vue.prototype.$indicator = Indicator
-    Vue.component(Field.name, Field)
+    // Vue.MessageBox = MessageBox
+    // Vue.prototype.$messageBox = MessageBox
+    // Vue.Toast = Toast
+    // Vue.prototype.$toast = Toast
+    // Vue.Indicator = Indicator
+    // Vue.prototype.$indicator = Indicator
+    // Vue.component(Field.name, Field)
 
     Vue.prototype.$formatDate = formatDate
     Vue.prototype.$relativeDate = relativeDate
@@ -61,11 +59,11 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default xyUI
 
-let mintUI = {
-  MessageBox,
-  Toast,
-  Indicator
-}
+// let mintUI = {
+//   // MessageBox,
+//   // Toast,
+//   // Indicator
+// }
 
 let xyDateFormat = {
   formatDate,
@@ -74,7 +72,6 @@ let xyDateFormat = {
 
 export {
   xyLazyloadResize,
-  xyPageTitle,
-  mintUI,
+  // mintUI,
   xyDateFormat
 }
