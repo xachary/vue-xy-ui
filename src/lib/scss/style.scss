@@ -52,7 +52,7 @@
   img {
     //display: block;
     display: none;
-    //opacity: 0;
+    opacity: 0;
     &[lazy=loading], &[lazy=error] {
       &.lazy-contain, &.lazy-cover {
         position: absolute;
@@ -60,8 +60,9 @@
         left: 50%;
       }
     }
-    &[lazy=loaded] {
+    &[lazy=loaded], &[lazy=error], &[lazy=loading] {
       display: block;
+      opacity: 1;
     }
     &[lazy=loading] {
       font-size: 12px;
@@ -69,7 +70,7 @@
       width: 16px;
       animation: rotating 1s linear infinite, delay-show 1s ease-in-out;
       //animation-delay: .5s;
-      display: block;
+      //display: block;
       &.lazy-contain, &.lazy-cover {
         margin-top: -8px;
         margin-left: -8px;
