@@ -67,7 +67,7 @@
       font-size: 12px;
       height: 16px;
       width: 16px;
-      animation: rotating 1s linear infinite, delay-show 0.5s ease-in-out;
+      animation: rotating 1s linear infinite, delay-show 1s ease-in-out;
       //animation-delay: .5s;
       display: block;
       &.lazy-contain, &.lazy-cover {
