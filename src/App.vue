@@ -4,20 +4,6 @@
     <!--<xy-page-progress></xy-page-progress>-->
     <xy-reach-bottom threshold="50"
                      @on-bottom="onbottom"></xy-reach-bottom>
-    <mt-field label="用户名"
-              placeholder="请输入用户名"
-              v-model="username"
-              :state="'success'"></mt-field>
-    <mt-field label="密码"
-              placeholder="请输入密码"
-              type="password"
-              v-model="password"
-              :state="'error'"></mt-field>
-    <mt-field label="验证码"
-              v-model="captcha"
-              :state="'error'">
-      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532502195712&di=1c7b21d5211d1197fa47fae5b008ce66&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F012b5156dbbc4f6ac72531cbe341a8.png%40900w_1l_2o_100sh.jpg">
-    </mt-field>
     <!--<div class="lazy-load"-->
     <!--style="width: 150px;height: 250px;border: 1px solid red;">-->
     <!--<img v-lazy="imgTest"-->
@@ -244,9 +230,9 @@
         ],
         imgs: [],
         count: 1,
-        imgTest: 'http://dummyimage.com/50x150',
-        imgTest2: 'http://dummyimage.com/70x150',
-        imgTest3: 'http://dummyimage.com/90x150',
+        imgTest: 'https://placeimg.com/927/582/any?' + (new Date()).getTime(),
+        imgTest2: 'https://placeimg.com/70/150/any?' + (new Date()).getTime(),
+        imgTest3: 'https://placeimg.com/90/150/any?' + (new Date()).getTime(),
         username: '',
         password: '',
         captcha: ''
@@ -266,9 +252,9 @@
       },
       onChangeImg () {
         let that = this
-        that.imgTest = `http://dummyimage.com/${that.count * 100}x150`
-        that.imgTest2 = `http://dummyimage.com/150x${that.count * 100}`
-        that.imgTest3 = `http://dummyimage.com/${that.count * 100}x${that.count * 100}`
+        that.imgTest = `https://placeimg.com/${that.count * 100}/1500/any?` + (new Date()).getTime()
+        that.imgTest2 = `https://placeimg.com/1500/${that.count * 100}/any?` + (new Date()).getTime()
+        that.imgTest3 = `https://placeimg.com/${that.count * 100}/${that.count * 100}/any?` + (new Date()).getTime()
         that.count++
       },
       onPopChange (type, data) {

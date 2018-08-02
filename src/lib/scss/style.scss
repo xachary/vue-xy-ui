@@ -21,10 +21,24 @@
 
 @keyframes rotating {
   0% {
+    //opacity: 0;
     transform: rotateZ(0deg)
   }
   100% {
+    //opacity: 1;
     transform: rotateZ(360deg)
+  }
+}
+
+@keyframes delay-show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -36,7 +50,9 @@
   flex-direction: column;
   align-items: center;
   img {
-    display: block;
+    //display: block;
+    display: none;
+    //opacity: 0;
     &[lazy=loading], &[lazy=error] {
       &.lazy-contain, &.lazy-cover {
         position: absolute;
@@ -44,11 +60,16 @@
         left: 50%;
       }
     }
+    &[lazy=loaded] {
+      display: block;
+    }
     &[lazy=loading] {
       font-size: 12px;
       height: 16px;
       width: 16px;
-      animation: rotating 1s linear infinite;
+      animation: rotating 1s linear infinite, delay-show 0.5s ease-in-out;
+      //animation-delay: .5s;
+      display: block;
       &.lazy-contain, &.lazy-cover {
         margin-top: -8px;
         margin-left: -8px;
@@ -62,7 +83,17 @@
     }
     &.lazy-contain, &.lazy-cover {
       position: absolute;
+      //@keyframes lazy-loading {
+      //  0% {
+      //    opacity: 0;
+      //  }
+      //  100% {
+      //    opacity: 1;
+      //  }
+      //}
       &.loading {
+        //animation: lazy-loading 0.5s ease-in-out;
+        //animation-delay: .5s;
         opacity: 1;
         height: 16px;
         width: 16px;
