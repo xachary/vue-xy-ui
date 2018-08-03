@@ -82,8 +82,9 @@ window.addEventListener('resize', function () {
 
 export default {
   preLoad: 1.5,
-  error: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAuCAYAAABqK0pRAAAFRUlEQVRo3s2aX4wTRRzHC4EnHySeBRMTczwoIaJYPeXBFxJ8NSaE6AHHQSSR4zifDA8aPdqdnXJ3XP/sTHsQEJTrzk57gJKQaHgwMZEYE0yUU+FIT580/okxGv88mIvjb9ptvO7MdvdK67bJL01329357Pc3v99vftNYzH2ZxBkA+wysahK2L6Z5IYtvQcTZBTYA9mQE9hTY05jyft34JMQaTJwf4F0ss1ENyGNw/EfP96KwJZPw9+F9R/MACVsDB//Q/GBMgaZOPxz/rgdgaoYstt+ryk79l5kKQ9i9cO52FAPH3s+FOWFk39zYPECg017AUt0MLngPnJPy3gD75H+wazA35pPZkkjmSiJd4C5IRaDM2YJuvuz3eRojsR54pYvl7RMzlZ8lDIDBQ7alKtf9Jr8PDDvUCzDnL109+OrEW3UQOS7qfBUz8vwRTPijSoQizrCPMpHDgCKbm8ZEnXkZUq+Av/8FtkGjzL5edDOUsxOYNoHckIP93I0EX4MK92lg9vq42eGoQNzkrYDcWnbwG4M4D4SHcY50dIAWH4KH+h5c90OIlEd9FaH8CR3IF80Jxtmu/TFxhnxgXu6Iu1CGvPkC7lnxUSQYxLDKW1tI6jdnxu4EwpgpPeSfBNkzYV3Lo0g5EeCfw52GgSf/fItsfqwrIG6JckBb9xCnrQCQPulsMQu1CkIDwne2BWLkg0Hci73YydBsZp2iSRWIjyAArFbKI4uFUITwRPgwyPzKmZfaUmbGOYporRj9FsYxCbb2TiZ7YmUh0zeatZ00IXKubXU+lCJhXcujjD7PWN1Jml0DceUe0geA8mgkIGGiFqbsbh+YPQoMLctc0NkKIEzUMil/vHkBxftxvUQhJmUfuCvD38GuwwDjmpvsVmBgFYcse6xTIFCiBIIsQS64y8zz1bL0gAhyDULgUotkVTUIj4dzMy7Q9JnRDrlWPAjkT7BT8KQX9clJmwSrYPHW6xkmlYaFUFmM50qHVx7FyutgPNvAI56F6+0Cey3YtdozLQwADHsLwWN5LiaLwYszTOx+uOYrbl/g15b37yCIqDf2NDBQmnsaGSKVZyJzqqyFMUglIXtWmLCl0PfuMIg/DOF7lqtiAMwbWSaK5/ghTXcGmoD8nxXdtwsgdTejWmUGm9YaAJPM24KeKY+o4b0SN2ulCosURF64amhgAOCFZmWYSFklgU5cHlU7mnN99VDPIgRxo1mq0BqmPggYaGFWoKnLR9RoNdcHyi3gIJhugjSUwXplBpu/B0224nlhTF1RYFL5CijDFnCkIHUXqmKihdnthTGLNsBcVGEIr7kZjhKkEQDS+jwz5HUzDDBoSi00kwUmlbmNrWhBasogfW027BkUwDBQRo1myeJsbRcAWzw6kP/KGbY+LExqQk2aqDDbB5N/IVIQ1xbB1gf2zWjDmCbPlCCa8QUZmtOFMlQK9pdRgLgwbIOmPFeWANKN0Iw9okazC7A/w2+OZ94WmdOXPo0KpAYDOUJ1M8oHvbWZNHTSVqpmnLu4bvxE6Zfp03PvRgnSgNHVZoPq+l8uA9QlwKT1zoOvT5/dJDsWt3C0G5qyNtMo46kA6q0qgfM+y+bjBWceWRHvzlKfQpN6kybAgB3P2SoMLvJzRtgqs9swumhG1WUzgvbqRNbjZihzYROWhRvtiX3zRaTbOaPOAQ24MHN8r7dbeBBRJnrkTwDfA8xGTUdT1zj/DabFKk/GtHfAiatgf/cAzE8wsbcGwlDnJiTMVX47R/fLjgU8lW0R/XFmoP7HHf6wvhXkPOduF34MIJsbx/8FZblgJW6d7poAAAAASUVORK5CYII=',
-  loading: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTklEQVQ4y52SPU8CQRBAtzI2mljxD4yJNvoH/FcmGCPe7awGRbidhWAQ/GJn7tBGG8Roa2FlR2kriYmVxESLsYBGNMrx2s17m50dpUYICvUMWNoC5C4g9wF5To1LoXaR1dYLIAsgfwLyPSBNjyUH1tey+YaEEXWNi1dVGvLl1jpYkqPWTV2lRbvmbK50JjuV5ElNgkEPxrFoy8sTBcByD5Df1aQMJ/6Q/uk8BcgzyrhYAOPUAeP4HJA/VFCiXr7a6qcNbJfjtyAiUSHyvkGSoNiYH1euNjuZsERiKj5Rm8U4kyt6MZXkMcXtnTAi0fZ8QSml1G6V9rRlOaB2/t/hRfEaWC/aJcffDkJLlxuFE9GRvzOOV0bFBrWXdOSvAmTRlm9/r1u2evCtAsgvgNwBpGtw/AzIogfy4d97UeZFsHF9GBAYSK9hRKca6ce2fgEBIMcpno6nCQAAAABJRU5ErkJggg==',
+  // error: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAQAAACSoYmJAAACwElEQVRo3u3b3VLaQBTA8Z1x5NoHo9f6OPgIouNb+BZFg1SBWlsL41dLK+FDW2UUEPj3AqEYErIJQfa0OXsN85vM2bN7IEepqWCVJFvsU6XNsqJNlX22SLKq/II1UtQwKeqkWJtF3qCKiVFlwx28wi4mxy4r0+Q9TI89B5ttJMTOJHkdKbH+t2LYYtD2SyUhhaRIKaVIGFaX/aJGQpFEWiQVaXHobcV7ceiMEpbRADVFRxy6oxAY/x56QIMyebLkKFKmycB09C0FLMcq0DQXPeB6Cjxa10t/3h5ob/KQbSC6OZNsYS05SZRbahz7oo+XmiLKrf21NFbdLHRJC10yC53XQufNQh9qobNmoXMS0QWJ6SFyI4oseXqHSz8+xv/XCxMMuPQkX5p6NR0mibAmYPS865TIkyVLnhL1yJ/xD66kNbY3LxW/Lwdtj5PulGcZ6NdHWDHQv39LQjfJOrb4ES2z0bdTZAuLHHfmon+5kofX3ZqZ6N8+TUbFPPSDRotx7nsavCm6pdkVndEzBf3IkRbZwuKEbnTob1o55xZPAcjDdu4xCvSAC+2t4oy2RmPhXB+4nxc9oBxoh09GR/O3FOc69LhTaqL7nAUuTKPoavb37usmLLrHaah6CvDMxznIFlY4dJeT0MdAz+OzC0Z3KIY+vXp8mpscAv3ks4UqM/fB5wjIgdEtjdpa8aw2XyIhB0Tfax66FVfy14jIgdB3mj/5urEna/obohued14d9nmEZG20HZD8mn0RKVkT/TPklw/ZVxGTNdHhv77C98jJC0cvZsXoGB2jY3SMjtExOkYvGy3yBVmRryJnxKEzQl+vlzfI8E6RoCEro0nIHM4RNgZVGw9UCho4mxymZEcEeUf+EKXIcdXxYLCZW9L2GAweD1RuGla3G2zOHMGeGHZPc4A987/exUYXmwPSJElMC/8AAsbzwJ8A0u0AAAAASUVORK5CYII=',
+  // loading: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTklEQVQ4y52SPU8CQRBAtzI2mljxD4yJNvoH/FcmGCPe7awGRbidhWAQ/GJn7tBGG8Roa2FlR2kriYmVxESLsYBGNMrx2s17m50dpUYICvUMWNoC5C4g9wF5To1LoXaR1dYLIAsgfwLyPSBNjyUH1tey+YaEEXWNi1dVGvLl1jpYkqPWTV2lRbvmbK50JjuV5ElNgkEPxrFoy8sTBcByD5Df1aQMJ/6Q/uk8BcgzyrhYAOPUAeP4HJA/VFCiXr7a6qcNbJfjtyAiUSHyvkGSoNiYH1euNjuZsERiKj5Rm8U4kyt6MZXkMcXtnTAi0fZ8QSml1G6V9rRlOaB2/t/hRfEaWC/aJcffDkJLlxuFE9GRvzOOV0bFBrWXdOSvAmTRlm9/r1u2evCtAsgvgNwBpGtw/AzIogfy4d97UeZFsHF9GBAYSK9hRKca6ce2fgEBIMcpno6nCQAAAABJRU5ErkJggg==',
+  // loading: 'data:image/gif;base64,R0lGODlhCgAKAJEDAMzMzP9mZv8AAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAADACwAAAAACgAKAAACF5wncgaAGgJzJ647cWua4sOBFEd62VEAACH5BAUAAAMALAEAAAAIAAMAAAIKnBM2IoMDAFMQFAAh+QQFAAADACwAAAAABgAGAAACDJwHMBGofKIRItJYAAAh+QQFAAADACwAAAEAAwAIAAACChxgOBPBvpYQYxYAIfkEBQAAAwAsAAAEAAYABgAAAgoEhmPJHOGgEGwWACH5BAUAAAMALAEABwAIAAMAAAIKBIYjYhOhRHqpAAAh+QQFAAADACwEAAQABgAGAAACDJwncqi7EQYAA0p6CgAh+QQJAAADACwHAAEAAwAIAAACCpRmoxoxvQAYchQAOw==',
   attempt: 3,
   throttleWait: 500,
   //lazyload 自动resize
@@ -92,6 +93,13 @@ export default {
   //导致上一张图片大小遗留影响到loading图片.
   adapter: {
     loaded ({el}, formCache) {
+      let parent = el.parentElement
+      parent.style.backgroundImage = 'inherit'
+      parent.style.backgroundColor = 'inherit'
+      parent.style.backgroundRepeat = 'inherit'
+      parent.style.backgroundPosition = 'inherit'
+      parent.style.backgroundSize = 'inherit'
+
       el.classList.remove('loading')
       el.classList.remove('error')
       el.classList.add('loaded')
@@ -107,8 +115,6 @@ export default {
           el.style.marginLeft = null
           el.style.marginTop = null
         }
-
-        let parent = el.parentElement
 
         console.log('el.offsetWidth', el.offsetWidth, 'el.offsetHeight', el.offsetHeight)
         console.log('parent.offsetWidth', parent.offsetWidth, 'parent.offsetHeight', parent.offsetHeight)
@@ -134,6 +140,12 @@ export default {
       }
     },
     loading ({el}) {
+      let parent = el.parentElement
+      parent.style.backgroundImage = 'url("data:image/gif;base64,R0lGODlhEgASAIABAKa4zP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAwABACwAAAAAEgASAEACJwyOoYa3D6N8rVqgLp5M2+x9XcWBTTmGTqqa6qqxFInWUMzhk76TBQAh+QQJAwABACwAAAAAEgASAEACKQyOoYa3D6NUrdHqGJ44d3B9m1ZNZGZ+YXmKnsuq44qaNqSmnZ3rllIAACH5BAkDAAEALAAAAAASABIAQAIpDI6hhrcPo2zt0cRuvG5xoHxfyE2UZJWeKrLtmZ3aWqG2OaOjvfPwUgAAIfkECQMAAQAsAAAAABIAEgBAAigMjqGGtw8jbC3SxO67bnLFhQD4bZRkap4qli37qWSF1utZh7a+41ABACH5BAkDAAEALAAAAAASABIAQAIqDI6hhrcP42pNMgoUdpfanXVgJSaaZ53Yt6kj+a6lI7tcioN5m+o7KSkAACH5BAkDAAEALAAAAAASABIAQAIoDI6hhrcPI2tOKpom3vZyvVEeBgLdKHYhGjZsW63kMp/Sqn4WnrtnAQAh+QQJAwABACwAAAAAEgASAEACKAyOocvtCCN0TB5lM6Ar92hYmChxX2l6qRhqYAui8GTOm8rhlL6/ZgEAIfkECQMAAQAsAAAAABIAEgBAAigMjqHL7QgjdEyeJY2leHOdgZF4KdYJfGTynaq7XmGctuicwZy+j2oBACH5BAkDAAEALAAAAAASABIAQAInDI6hy+0II3RMHrosUFpjbmUROJFdiXmfmoafMZoodUpyLU5sO1MFACH5BAkDAAEALAAAAAASABIAQAImDI6hy+2GDozyKZrspBf7an1aFy2fuJ1Z6I2oho2yGqc0SYN1rRUAIfkECQMAAQAsAAAAABIAEgBAAiYMjqHL7W+QVLJaAOnVd+eeccliRaXZVSH4ee0Uxg+bevUJnuIRFAAh+QQJAwABACwAAAAAEgASAEACKoyBacvtnyI4EtH6QrV6X5l9UYgt2DZ1JRqqIOm1ZUszrIuOeM6x8x4oAAAh+QQJAwABACwAAAAAEgASAEACKIwNqcftryJAMrFqG55hX/wcnlN9UQeipZiGo9vCZ0hD6TbiN7hSZwEAIfkECQMAAQAsAAAAABIAEgBAAiiMH6CL7Z+WNHK2yg5WdLsNQB12VQgJjmZJiqnriZEl1y94423aqlwBACH5BAkDAAEALAAAAAASABIAQAIrjH+gi+2+IjCSvaoo1vUFPHnfxlllBp5mk4qt98KSSKvZCHZ4HtmTrgoUAAAh+QQFAwABACwAAAAAEgASAEACKIyPAcvpr5g0csJYc8P1cgtpwDceGblQmiey69W6oOfEon2f6KirUwEAIfkECQMAAQAsAAAPAAgAAwBAAgSMj6lXACH5BAkDAAEALAAAAAASABIAQAIYjI+JwK0Po5y02glUvrz7bzXiBpbLaD4FACH5BAkDAAEALAAAAAASABIAQAImjI8By8qfojQPTldzw/VymB3aCIidN6KaGl7kSnWpC6ftt00zDRUAIfkECQMAAQAsAAAAABIAEgBAAiaMjwHLyp+iNA9WcO6aVHOneWBYZeUXouJEiu1lWit7jhCX4rMEFwAh+QQJAwABACwAAAAAEgASAEACJ4yPAcvKn6I0r1pA78zWQX51XrWBSzl+Uxia7Jm+mEujW3trubg3BQAh+QQFAwABACwAAAAAEgASAEACJwyOoYa3D6N8rVqgLp5M2+x9XcWBTTmGTqqa6qqxFInWUMzhk76TBQA7")'
+      parent.style.backgroundColor = 'inherit'
+      parent.style.backgroundRepeat = 'no-repeat'
+      parent.style.backgroundPosition = 'center'
+      parent.style.backgroundSize = 'inherit'
       if (!el.classList.contains('loading')) {
         el.classList.remove('loaded')
         el.classList.remove('error')
@@ -149,6 +161,13 @@ export default {
       }
     },
     error ({el}) {
+      let parent = el.parentElement
+      let min = parent.offsetWidth > parent.offsetHeight ? parent.offsetHeight : parent.offsetWidth
+      parent.style.backgroundImage = 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAQAAACSoYmJAAACwElEQVRo3u3b3VLaQBTA8Z1x5NoHo9f6OPgIouNb+BZFg1SBWlsL41dLK+FDW2UUEPj3AqEYErIJQfa0OXsN85vM2bN7IEepqWCVJFvsU6XNsqJNlX22SLKq/II1UtQwKeqkWJtF3qCKiVFlwx28wi4mxy4r0+Q9TI89B5ttJMTOJHkdKbH+t2LYYtD2SyUhhaRIKaVIGFaX/aJGQpFEWiQVaXHobcV7ceiMEpbRADVFRxy6oxAY/x56QIMyebLkKFKmycB09C0FLMcq0DQXPeB6Cjxa10t/3h5ob/KQbSC6OZNsYS05SZRbahz7oo+XmiLKrf21NFbdLHRJC10yC53XQufNQh9qobNmoXMS0QWJ6SFyI4oseXqHSz8+xv/XCxMMuPQkX5p6NR0mibAmYPS865TIkyVLnhL1yJ/xD66kNbY3LxW/Lwdtj5PulGcZ6NdHWDHQv39LQjfJOrb4ES2z0bdTZAuLHHfmon+5kofX3ZqZ6N8+TUbFPPSDRotx7nsavCm6pdkVndEzBf3IkRbZwuKEbnTob1o55xZPAcjDdu4xCvSAC+2t4oy2RmPhXB+4nxc9oBxoh09GR/O3FOc69LhTaqL7nAUuTKPoavb37usmLLrHaah6CvDMxznIFlY4dJeT0MdAz+OzC0Z3KIY+vXp8mpscAv3ks4UqM/fB5wjIgdEtjdpa8aw2XyIhB0Tfax66FVfy14jIgdB3mj/5urEna/obohued14d9nmEZG20HZD8mn0RKVkT/TPklw/ZVxGTNdHhv77C98jJC0cvZsXoGB2jY3SMjtExOkYvGy3yBVmRryJnxKEzQl+vlzfI8E6RoCEro0nIHM4RNgZVGw9UCho4mxymZEcEeUf+EKXIcdXxYLCZW9L2GAweD1RuGla3G2zOHMGeGHZPc4A987/exUYXmwPSJElMC/8AAsbzwJ8A0u0AAAAASUVORK5CYII=")'
+      parent.style.backgroundColor = '#d9d9d9'
+      parent.style.backgroundRepeat = 'no-repeat'
+      parent.style.backgroundPosition = 'center'
+      parent.style.backgroundSize = `${min / 3}px`
       el.classList.remove('loaded')
       el.classList.remove('loading')
       el.classList.add('error')

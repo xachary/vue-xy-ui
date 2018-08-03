@@ -22,6 +22,15 @@
            :data-index="1"
            v-xy-pop-image:change="onPopChange">
     </div>
+    <div class="lazy-load"
+         style="width: 30px;height: 30px;border: 1px solid blue;">
+      <img v-lazy="imgTest2"
+           class="lazy-cover"
+           :key="imgTest2"
+           :data-img="imgTest2"
+           :data-index="1"
+           v-xy-pop-image:change="onPopChange">
+    </div>
     <!--<div class="lazy-load"-->
     <!--style="width: 200px;height: 200px;border: 1px solid green;">-->
     <!--<img v-lazy="imgTest3"-->
