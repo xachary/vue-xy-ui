@@ -35,15 +35,15 @@ function cover (el, baseInfo) {
   console.log('baseInfo.ht.height === baseInfo.ot.height && baseInfo.ht.width >= baseInfo.ot.width')
   console.log(`${baseInfo.ht.height} === ${baseInfo.ot.height} && ${baseInfo.ht.width} >= ${baseInfo.ot.width}`)
   if (baseInfo.wt.width === baseInfo.ot.width && baseInfo.wt.height >= baseInfo.ot.height) {
-    el.style.width = `${baseInfo.wt.width}px`
-    el.style.height = `${baseInfo.wt.height}px`
-    el.style.top = `${(-(baseInfo.wt.height - baseInfo.ot.height)) / 2}px`
-    el.style.left = '0px'
+    el.style.width = `${baseInfo.wt.width + 2}px`
+    el.style.height = `${baseInfo.wt.height + 2}px`
+    el.style.top = `${(-(baseInfo.wt.height - baseInfo.ot.height)) / 2 - 1}px`
+    el.style.left = `${-1}px`
   } else if (baseInfo.ht.height === baseInfo.ot.height && baseInfo.ht.width >= baseInfo.ot.width) {
-    el.style.width = `${baseInfo.ht.width}px`
-    el.style.height = `${baseInfo.ht.height}px`
-    el.style.top = '0px'
-    el.style.left = `${(-(baseInfo.ht.width - baseInfo.ot.width)) / 2}px`
+    el.style.width = `${baseInfo.ht.width + 2}px`
+    el.style.height = `${baseInfo.ht.height + 2}px`
+    el.style.top = `${-1}px`
+    el.style.left = `${(-(baseInfo.ht.width - baseInfo.ot.width)) / 2 - 1}px`
   }
   console.log('el.style.width', el.style.width)
   console.log('el.style.height', el.style.height)
@@ -87,6 +87,7 @@ export default {
   // loading: 'data:image/gif;base64,R0lGODlhCgAKAJEDAMzMzP9mZv8AAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAADACwAAAAACgAKAAACF5wncgaAGgJzJ647cWua4sOBFEd62VEAACH5BAUAAAMALAEAAAAIAAMAAAIKnBM2IoMDAFMQFAAh+QQFAAADACwAAAAABgAGAAACDJwHMBGofKIRItJYAAAh+QQFAAADACwAAAEAAwAIAAACChxgOBPBvpYQYxYAIfkEBQAAAwAsAAAEAAYABgAAAgoEhmPJHOGgEGwWACH5BAUAAAMALAEABwAIAAMAAAIKBIYjYhOhRHqpAAAh+QQFAAADACwEAAQABgAGAAACDJwncqi7EQYAA0p6CgAh+QQJAAADACwHAAEAAwAIAAACCpRmoxoxvQAYchQAOw==',
   attempt: 3,
   throttleWait: 500,
+  // listenEvents: ['resize'],
   //lazyload 自动resize
   //TODO:瑕疵点: 还没加载完成图片, 数据更新, 重新加载时, 偶发加载图片样式有误.
   //原因: Lazyload的loading事件有几率滞后于替换为loading的图片.
@@ -100,9 +101,6 @@ export default {
       parent.style.backgroundPosition = 'inherit'
       parent.style.backgroundSize = 'inherit'
 
-      el.classList.remove('loading')
-      el.classList.remove('error')
-      el.classList.add('loaded')
       if (el.classList.contains('lazy-contain') || el.classList.contains('lazy-cover')) {
         if (el.classList.contains('loading')) {
           //            console.warn('loaded')
@@ -138,6 +136,10 @@ export default {
           cover(el, baseInfo)
         }
       }
+
+      el.classList.remove('loading')
+      el.classList.remove('error')
+      el.classList.add('loaded')
     },
     loading ({el}) {
       let parent = el.parentElement

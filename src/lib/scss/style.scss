@@ -1,5 +1,5 @@
 @import "./mixin";
-@import "./mint-ui-extend";
+//@import "./mint-ui-extend";
 
 @keyframes xy-moving-btn {
   0% {
@@ -60,9 +60,15 @@
         left: 50%;
       }
     }
-    &[lazy=loaded], &[lazy=error], &[lazy=loading] {
+    &[lazy=error], &[lazy=loading] {
       display: block;
       opacity: 1;
+    }
+    &[lazy=loaded] {
+      &.loaded {
+        display: block;
+        opacity: 1;
+      }
     }
     &[lazy=loading] {
       font-size: 12px;

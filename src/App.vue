@@ -47,8 +47,11 @@
                      :imgs="imgs3"
                      @on-change="onchange"
                      v-xy-moving-btn></xy-scale-slider>
-    <div class="lazy-load">
-      <img v-lazy="'http://dummyimage.com/300x100'">
+    <div class="lazy-load"
+         style="border-radius: 50%;width: 100px;height: 100px;"
+         v-for="(item, index) in imgs2"
+         :key="item.id">
+      <img v-lazy="item">
     </div>
     <xy-article :des="des"></xy-article>
     <div id="demo">
