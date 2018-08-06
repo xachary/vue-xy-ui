@@ -65,8 +65,8 @@
       opacity: 1;
     }
     &[lazy=loaded] {
+      display: block;
       &.loaded {
-        display: block;
         opacity: 1;
       }
     }
