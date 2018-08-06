@@ -221,8 +221,7 @@ export default {
     loader.style.height = '0'
     loader.classList.add('xy-pull-refresh__bar')
     loader.innerHTML = '<span></span><span></span><span></span>'
-    el.prepend(loader)
-    // el.append(logger)
+    el.insertBefore(loader, el.children[0])
     touchstartCb = touchstart.bind({}, el)
     touchmoveCb = touchmove.bind({}, el)
     touchendCb = touchend.bind({}, el)
