@@ -106,6 +106,9 @@ export default {
         parent.style.backgroundSize = 'contain'
       } else if (el.classList.contains('lazy-cover')) {
         parent.style.backgroundSize = 'cover'
+      } else {
+        parent.style.backgroundSize = '100%'
+        parent.style.height = `${el.offsetHeight}px`
       }
 
       parent.classList.remove('loading')

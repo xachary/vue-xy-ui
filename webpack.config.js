@@ -29,26 +29,26 @@ module.exports = {
         to: 'nuxt/xy-page-progress.vue',
         force: true
       },
-      {
-        from: 'src/lib/scss/nuxt/page.scss',
-        to: 'nuxt/page.scss',
-        force: true
-      },
-      {
-        from: 'src/lib/scss/base.scss',
-        to: 'base.scss',
-        force: true
-      },
+      // {
+      //   from: 'src/lib/scss/nuxt/page.scss',
+      //   to: 'nuxt/page.scss',
+      //   force: true
+      // },
+      // {
+      //   from: 'src/lib/scss/base.scss',
+      //   to: 'base.scss',
+      //   force: true
+      // },
       {
         from: 'src/lib/style/normalize-8.0.0.css',
         to: 'style/normalize-8.0.0.css',
         force: true
       },
-      {
-        from: 'src/lib/mint-ui/lib/style.css',
-        to: 'mint-ui/lib/style.css',
-        force: true
-      }
+      // {
+      //   from: 'src/lib/mint-ui/lib/style.css',
+      //   to: 'mint-ui/lib/style.css',
+      //   force: true
+      // }
     ])
   ],
   module: {

@@ -1,3 +1,5 @@
+import Base from './scss/base.scss'
+import Page from './scss/nuxt/page.scss'
 import Style from './scss/style.scss'
 
 import xyKeepTop from './directives/xy-keep-top'

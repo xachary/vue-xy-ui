@@ -13,14 +13,38 @@
     <!--:data-index="0"-->
     <!--v-xy-pop-image:change="onPopChange">-->
     <!--</div>-->
+    <!--<div class="lazy-load"-->
+    <!--style="width: 250px;height: 150px;border: 1px solid blue;">-->
+    <!--<img v-lazy="imgTest2"-->
+    <!--class="lazy-contain"-->
+    <!--:key="imgTest2"-->
+    <!--:data-img="imgTest2"-->
+    <!--:data-index="1"-->
+    <!--v-xy-pop-image:change="onPopChange">-->
+    <!--</div>-->
+    <div class="lazy-load"
+         style="width: 250px;height: 150px;border: 1px solid blue;">
+      <img v-lazy="imgTest"
+           class="lazy-contain"
+           :key="imgTest"
+           :data-img="imgTest"
+           v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
+    </div>
     <div class="lazy-load"
          style="width: 250px;height: 150px;border: 1px solid blue;">
       <img v-lazy="imgTest2"
            class="lazy-contain"
            :key="imgTest2"
            :data-img="imgTest2"
-           :data-index="1"
-           v-xy-pop-image:change="onPopChange">
+           v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
+    </div>
+    <div class="lazy-load"
+         style="width: 250px;height: 150px;border: 1px solid blue;">
+      <img v-lazy="imgTest3"
+           class="lazy-contain"
+           :key="imgTest3"
+           :data-img="imgTest3"
+           v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
     </div>
     <div class="lazy-load"
          style="width: 30px;height: 30px;border: 1px solid blue;">
@@ -28,7 +52,6 @@
            class="lazy-cover"
            :key="imgTest2"
            :data-img="imgTest2"
-           :data-index="1"
            v-xy-pop-image:change="onPopChange">
     </div>
     <!--<div class="lazy-load"-->

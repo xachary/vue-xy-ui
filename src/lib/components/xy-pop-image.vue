@@ -198,6 +198,7 @@
       return {
         visible: false,
         img: '',
+        imgs: [],
         index: 0,
         loading: true,
         done: false,
@@ -655,7 +656,6 @@
       },
       popup () {
         let that = this
-
         if (that.img) {
           //计算初始位置
           that.oh = that.$refs.img.offsetHeight
