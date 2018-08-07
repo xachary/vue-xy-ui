@@ -9,7 +9,7 @@
          :src="img"
          @load="onLoad"
          ref="img"
-         :style="{top:`${top}px`,left:`${left}px`,width:`${width}px`,height:`${height<=0?'auto':(height+'px')}`}"
+         :style="{opacity:loading?0:1,visibility:loading?'hidden':'visible',top:`${top}px`,left:`${left}px`,width:`${width}px`,height:`${height<=0?'auto':(height+'px')}`}"
          @touchstart.prevent="onTouchstart"
          @touchmove.prevent="onTouchmove"
          @touchend.prevent="onTouchend">
@@ -682,6 +682,12 @@
           that.loading = false
           that.done = true
         }, 200)
+      }
+    },
+    watch: {
+      img: function () {
+        let that = this
+        that.loading = true
       }
     },
     mounted: function () {
