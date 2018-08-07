@@ -83,13 +83,15 @@
           //          let tpl = `<div>${that.des.replace(/(<img.*?)(src=["'])(.*?)(["'].*?)(.*?>)/g, '<div class="lazy-load">$1v-lazy="\'$3\'$4 v-xy-pop-image data-img="$3" data-index="0" $5</div>')}</div>`
           let tpl = `<div>${that.des.replace(/(<img.*?)(src=["'])(.*?)(["'])(.*?>)/g, '<div class="lazy-load"><img v-lazy="\'$3\'" v-xy-pop-image data-img="$3"></div>')}</div>`
           let ls = tpl.match(/v-lazy="'(.*?)'"/g)
-          let imgs = []
-          for (let i = 0; i < ls.length; i++) {
-            let src = ls[i].replace(/v-lazy="'(.*?)'"/g, '$1')
-            imgs.push(`'${src}'`)
-            tpl = tpl.replace(src, `${src}?idx=${i}`)
+          if (ls) {
+            let imgs = []
+            for (let i = 0; i < ls.length; i++) {
+              let src = ls[i].replace(/v-lazy="'(.*?)'"/g, '$1')
+              imgs.push(`'${src}'`)
+              tpl = tpl.replace(src, `${src}?idx=${i}`)
+            }
+            tpl = tpl.replace(/v-xy-pop-image/g, `v-xy-pop-image:imgs="[${imgs.join(',')}]"`)
           }
-          tpl = tpl.replace(/v-xy-pop-image/g, `v-xy-pop-image:imgs="[${imgs.join(',')}]"`)
           //          let idx = tpl.indexOf('a',7)
           //          while (){
           //

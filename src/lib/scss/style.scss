@@ -69,6 +69,7 @@
   }
   &.loading {
     animation: delay-show 1s ease-in-out;
+    background-color: #fff;
   }
   &.error {
     background-color: #d9d9d9;
