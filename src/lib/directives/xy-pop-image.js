@@ -61,9 +61,9 @@ export default {
     clicks.set(el, btnClickCb)
   },
   unbind: function (el, {value, arg}) {
-    if (instance) {
-      instance.visible = false
-    }
+    // if (instance) {
+    //   instance.visible = false
+    // }
     if (arg === 'change' && value) {
       // debugger
       // let els = handlers.get(value)
