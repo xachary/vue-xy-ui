@@ -53,9 +53,13 @@ const xyUI = {
     // Vue.prototype.$indicator = Indicator
     // Vue.component(Field.name, Field)
 
-    Vue.prototype.$formatDate = formatDate
-    Vue.prototype.$relativeDate = relativeDate
-    Vue.prototype.$isIdCard = isIdCard
+    Vue.prototype.$xyFormat = {
+      formatDate,
+      relativeDate
+    }
+    Vue.prototype.$xyValidate = {
+      isIdCard
+    }
   }
 }
 
