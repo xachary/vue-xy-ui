@@ -1,7 +1,6 @@
 // 触发刷新
 function pullRefresh (cb, el) {
   log('刷新触发')
-
   cb.call({}, function stop () {
     // 结束刷新反馈
     eh = 0
@@ -12,6 +11,7 @@ function pullRefresh (cb, el) {
 }
 
 function touchstart (el, {touches: [touch]}) {
+  el.classList.add('xy-pull-refresh')
   let {clientY: y} = touch
   sy = Math.round(y)
   my = sy

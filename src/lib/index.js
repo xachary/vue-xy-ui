@@ -25,6 +25,10 @@ import {
   relativeDate
 } from './prototypes/xy-date-format'
 
+import {
+  isIdCard
+} from './prototypes/xy-id-card'
+
 const xyUI = {
   install (Vue) {
     Vue.directive(xyKeepTop.name, xyKeepTop)
@@ -51,6 +55,7 @@ const xyUI = {
 
     Vue.prototype.$formatDate = formatDate
     Vue.prototype.$relativeDate = relativeDate
+    Vue.prototype.$isIdCard = isIdCard
   }
 }
 
