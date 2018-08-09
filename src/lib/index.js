@@ -27,7 +27,11 @@ import {
 
 import {
   isIdCard
-} from './prototypes/xy-id-card'
+} from './prototypes/xy-validate'
+
+import {
+  sleep
+} from './prototypes/xy-tools'
 
 const xyUI = {
   install (Vue) {
@@ -59,6 +63,9 @@ const xyUI = {
     }
     Vue.prototype.$xyValidate = {
       isIdCard
+    }
+    Vue.prototype.$xyTools = {
+      sleep
     }
   }
 }
