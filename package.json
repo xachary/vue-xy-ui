@@ -14,7 +14,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
     "start": "npm run dev",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "push": "npm run build;git push -u origin master;npm publish",
+    "push": "npm run build;git add .;git commit -m 'update';git push -u origin master;npm publish",
     "start2": "./node_modules/spa-http-server/bin/http-server -p 7777 --push-state"
   },
   "dependencies": {
