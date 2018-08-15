@@ -30,7 +30,8 @@ import {
 } from './prototypes/xy-validate'
 
 import {
-  sleep
+  sleep,
+  browser
 } from './prototypes/xy-tools'
 
 const xyUI = {
@@ -65,7 +66,8 @@ const xyUI = {
       isIdCard
     }
     Vue.prototype.$xyTools = {
-      sleep
+      sleep,
+      browser
     }
   }
 }
@@ -88,8 +90,19 @@ let xyDateFormat = {
   relativeDate
 }
 
+let xyTools = {
+  sleep,
+  browser
+}
+
+let xyValidate = {
+  isIdCard
+}
+
 export {
   xyLazyloadResize,
   // mintUI,
-  xyDateFormat
+  xyDateFormat,
+  xyTools,
+  xyValidate
 }

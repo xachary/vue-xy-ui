@@ -17,25 +17,31 @@ let btnClickCb = function () {
 }
 
 function btnClick (el) {
-  var parent = el.parentElement
-  var hasA = false
+  if (el.getAttribute('lazy') === 'loaded') {
+    var parent = el.parentElement
+    var hasA = false
 
-  while (parent && !parent.classList.contains('xy-article')) {
-    // console.log(parent)
-    parent = parent.parentElement
-    hasA = parent.tagName === 'A'
-    if (hasA) {
-      break
+    while (parent && !parent.classList.contains('xy-article')) {
+      // console.log(parent)
+      parent = parent.parentElement
+      if (parent) {
+        hasA = parent.tagName === 'A'
+        if (hasA) {
+          break
+        }
+      } else {
+        break
+      }
     }
-  }
 
-  if (hasA) {
-    return
+    if (hasA) {
+      return
+    }
+    // debugger
+    instances[el.dataset.id].visible = true
+    instances[el.dataset.id].img = el.dataset.img
+    instances[el.dataset.id].index = el.dataset.index
   }
-
-  instances[el.dataset.id].visible = true
-  instances[el.dataset.id].img = el.dataset.img
-  instances[el.dataset.id].index = el.dataset.index
 }
 
 let count = 0

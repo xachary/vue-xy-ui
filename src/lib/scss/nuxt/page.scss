@@ -4,42 +4,64 @@
 
 .route-in {
   .page-enter-active {
-    animation: route-in-enter .5s;
-    opacity: 1;
+    //transform-origin: bottom right;
+    animation: route-in-enter .6s ease-out;
+    //opacity: 1;
   }
   .page-leave-active {
-    opacity: 0;
+    transform-origin: top left;
+    animation: route-leave .2s ease-in;
+    //opacity: 0;
   }
 }
 
 .route-out {
   .page-enter-active {
-    animation: route-out-enter .5s;
-    opacity: 1;
+    //transform-origin: bottom left;
+    animation: route-out-enter .6s ease-out;
+    //opacity: 1;
   }
   .page-leave-active {
-    opacity: 0;
+    transform-origin: top right;
+    animation: route-leave .2s ease-in;
+    //opacity: 0;
   }
 }
 
 .page-enter, .page-leave {
-  transition: opacity .3s;
+  //transition: opacity 5s;
+  transform-style: preserve-3d;
+}
+
+@keyframes route-leave {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(0, 100vh) scale(0);
+  }
 }
 
 @keyframes route-in-enter {
   from {
     transform: translate(100vw, 0);
+    //transform: perspective(100vh) rotateY(90deg) translateZ(40vh) scale(.6);
   }
   to {
-    transform: translate(0, 0);
+    transform: translate(0, 0) scale(1);
+    //transform: perspective(100vh) rotateY(0deg) translateZ(40vh) scale(.6);
   }
 }
 
 @keyframes route-out-enter {
   from {
     transform: translate(-100vw, 0);
+    //transform: perspective(100vh) rotateY(-90deg) translateZ(40vh) scale(.6);
   }
   to {
-    transform: translate(0, 0)
+    transform: translate(0, 0) scale(1);
+    //transform: perspective(100vh) rotateY(0deg) translateZ(40vh) scale(.6);
   }
 }
