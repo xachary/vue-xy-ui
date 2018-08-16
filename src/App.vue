@@ -364,8 +364,8 @@
       //        duration: 100000,
       //        iconClass: 'mintui mintui-field-error xy-mintui-extend-icon'
       //      })
-      console.log(that.$formatDate(new Date(), 'yyyy-MM-dd'))
-      console.log(that.$relativeDate(new Date()))
+      //      console.log(that.$formatDate(new Date(), 'yyyy-MM-dd'))
+      //      console.log(that.$relativeDate(new Date()))
 
       //      setTimeout(function () {
       //        that.imgs3 = that.imgs4

@@ -264,7 +264,8 @@
         ww: window.innerWidth,
         wh: window.innerHeight,
         oh: 0,
-        ow: 0
+        ow: 0,
+        clickTime: null
       }
     },
     methods: {
@@ -331,6 +332,19 @@
             //新中点 - 旧中点(虚构补充)
             that.cenX.start = tempCenX - (that.starts.value[0].x - tx)
             that.cenY.start = tempCenY - (that.starts.value[0].y - ty)
+          }
+        } else {
+          let oldClickTime = that.clickTime
+          that.clickTime = (new Date()).getTime()
+          if (oldClickTime) {
+            if (that.clickTime - oldClickTime < 200) {
+              console.log('双击')
+              that.reset()
+              that.$nextTick(function () {
+                that.popup()
+              })
+              that.clickTime = null
+            }
           }
         }
         // }
