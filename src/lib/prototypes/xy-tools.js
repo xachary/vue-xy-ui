@@ -15,9 +15,9 @@ function browser () {
     wx: false
   }
   if (navigator) {
-    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+    if (/(iPhone|iPad|iPod|iOS|Android|X11)/i.test(navigator.userAgent)) {
       var u = navigator.userAgent
-      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 //android终端
+      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 || u.indexOf('X11') > -1 //android终端
       var isiOS = Boolean(u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) //ios终端
       if (isAndroid) {
         result.type = 'android'

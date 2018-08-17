@@ -8,6 +8,11 @@
 
   export default {
     name: 'xy-article',
+    data () {
+      return {
+        done: false
+      }
+    },
     props: {
       des: {
         type: String,
@@ -32,7 +37,7 @@
       //      },
       update () {
         let that = this
-        if (that.des) {
+        if (that.des && !that.done) {
           //          let start = 0
           //          that.array = []
           //          let ms = that.des.match(/(<img .*?>)/g)
@@ -101,6 +106,7 @@
             template: tpl
           })
           new text().$mount('#xy-article__point')
+          that.done = true
         }
       }
     },
