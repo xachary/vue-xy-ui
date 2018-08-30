@@ -1,40 +1,3 @@
-<template>
-  <div class="xy-list-status"
-       v-if="status!==''"
-       :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading'}"
-       :style="{height:status==='empty'?`calc(100vh - ${top}px)`:'auto'}">
-    <slot name="empty"
-          v-if="status==='empty'">
-      <span>暂无内容</span>
-    </slot>
-    <slot name="nomore"
-          v-if="status==='nomore'">
-      <span>没有更多了</span>
-    </slot>
-    <div v-if="status==='loading'"><span>加</span><span>载</span><span>中</span></div>
-  </div>
-</template>
-
-<script>
-  export default {
-    name: 'xy-list-status',
-    props: {
-      status: String
-    },
-    data () {
-      return {
-        top: 0
-      }
-    },
-    watch: {
-      status: function () {
-        let that = this
-        that.top = Math.floor(that.$el.parentElement.getBoundingClientRect().top)
-      }
-    }
-  }
-</script>
-
 <style lang="scss"
        scoped>
   @import "../scss/mixin";
@@ -44,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: rsh(30);
+    /*padding-bottom: rsh(30);*/
     font-style: normal;
     font-size: rsh(28);
     color: rgba(166, 166, 166, 1);
@@ -79,3 +42,48 @@
     }
   }
 </style>
+<template>
+  <div class="xy-list-status"
+       v-if="status!==''"
+       :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading'}"
+       :style="{height:status==='empty'?`calc(100vh - ${top}px - ${bv}vw)`:'auto'}">
+    <slot name="empty"
+          v-if="status==='empty'">
+      <span>暂无内容</span>
+    </slot>
+    <slot name="nomore"
+          v-if="status==='nomore'">
+      <span>没有更多了</span>
+    </slot>
+    <div v-if="status==='loading'"><span>加</span><span>载</span><span>中</span></div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'xy-list-status',
+    props: {
+      status: String,
+      bottom: {
+        default: '0'
+      }
+    },
+    data () {
+      return {
+        top: 0
+      }
+    },
+    computed: {
+      bv: function () {
+        let that = this
+        return parseInt(that.bottom) / 750 * 100
+      }
+    },
+    watch: {
+      status: function () {
+        let that = this
+        that.top = Math.floor(that.$el.parentElement.getBoundingClientRect().top)
+      }
+    }
+  }
+</script>

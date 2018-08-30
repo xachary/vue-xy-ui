@@ -34,7 +34,7 @@
   }
 }
 
-@mixin angle($color,$size,$direction:'right',$style:'slim') {
+@mixin angle($color,$size:24,$direction:'right',$style:'slim') {
   $char: '>';
   $tran: scale(1, 2);
   @if $direction == 'left' {
