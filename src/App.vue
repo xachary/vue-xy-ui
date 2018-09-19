@@ -22,6 +22,19 @@
     <!--:data-index="1"-->
     <!--v-xy-pop-image:change="onPopChange">-->
     <!--</div>-->
+    <xy-time-count class="mall-picks__item__info__time"
+                   :time="time1"
+                   label="即将开始(2天)">
+    </xy-time-count>
+    <xy-time-count class="mall-picks__item__info__time"
+                   :time="time2"
+                   label="即将开始(1天+多5秒)">
+    </xy-time-count>
+    <xy-time-count class="mall-picks__item__info__time"
+                   :time="time3"
+                   label="即将开始(5秒)"
+                   @finish="onFinish">
+    </xy-time-count>
     <div class="lazy-load"
          style="width: 250px;height: 150px;border: 1px solid blue;">
       <img v-lazy="imgTest"
@@ -184,7 +197,12 @@
   export default {
     name: 'app',
     data () {
+      let now = (new Date()).getTime()
       return {
+        //
+        time1: new Date(now + 1000 * 60 * 60 * 24 * 2),
+        time2: new Date(now + 1000 * 60 * 60 * 24 * 1 + 1000 * 5),
+        time3: new Date(now + 1000 * 5),
         des2: `<p>　　原标题：（出访）习近平抵达阿布扎比开始对阿拉伯联合酋长国进行国事访问&nbsp;</p>
 <div class="img_wrapper"><img src="http://dummyimage.com/336x280" alt="7月19日，国家主席习近平乘专机抵达阿布扎比，开始对阿拉伯联合酋长国进行国事访问。阿联酋副总统兼总理穆罕默德在机场为习近平举行迎接仪式。这是习近平和夫人彭丽媛在阿联酋副总统兼总理穆罕默德、阿布扎比王储穆罕默德陪同下前往检阅大厅。 新华社记者李学仁摄" data-mcesrc="http://www.xinhuanet.com/world/2018-07/20/1123151532_15320241862821n.jpg" data-mceselected="1" data-link=""><span class="img_descr">　　7月19日，国家主席习近平乘专机抵达阿布扎比，开始对阿拉伯联合酋长国进行国事访问。阿联酋副总统兼总理穆罕默德在机场为习近平举行迎接仪式。这是习近平和夫人彭丽媛在阿联酋副总统兼总理穆罕默德、阿布扎比王储穆罕默德陪同下前往检阅大厅。 新华社记者李学仁摄</span></div>
 <p>　　新华社阿布扎比7月19日电（记者苏小坡　李忠发　郑开君）19日，国家主席习近平乘专机抵达阿布扎比，开始对阿拉伯联合酋长国进行国事访问。&nbsp;</p>
@@ -297,6 +315,9 @@
         //        debugger
         // 这里有setter, 可以改变预览图
         data.img = that.imgTest3
+      },
+      onFinish () {
+        console.log('倒数结束')
       }
     },
     mounted: function () {

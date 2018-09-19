@@ -45,10 +45,10 @@
 <template>
   <div class="xy-list-status"
        v-if="status!==''"
-       :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading'}"
+       :class="{'xy-list-status--empty':status==='empty','xy-list-status--nomore':status==='nomore','xy-list-status--loading':status==='loading','xy-list-status--empty--short':status==='empty-short'}"
        :style="{height:status==='empty'?`calc(100vh - ${top}px - ${bv}vw)`:'auto'}">
     <slot name="empty"
-          v-if="status==='empty'">
+          v-if="status==='empty'||status==='empty-short'">
       <span>暂无内容</span>
     </slot>
     <slot name="nomore"

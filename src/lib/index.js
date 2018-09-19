@@ -19,11 +19,16 @@ import xyArticle from './components/xy-article.vue'
 import xyReachBottom from './components/xy-reach-bottom.vue'
 import xyScaleSlider from './components/xy-scale-slider.vue'
 import xyListStatus from './components/xy-list-status.vue'
+import xyTimeCount from './components/xy-time-count.vue'
 
 import {
   formatDate,
   relativeDate
 } from './prototypes/xy-date-format'
+
+import {
+  numberAfterPoint
+} from './prototypes/xy-number'
 
 import {
   isIdCard
@@ -49,7 +54,7 @@ const xyUI = {
     Vue.component(xyReachBottom.name, xyReachBottom)
     Vue.component(xyScaleSlider.name, xyScaleSlider)
     Vue.component(xyListStatus.name, xyListStatus)
-
+    Vue.component(xyTimeCount.name, xyTimeCount)
     // Vue.MessageBox = MessageBox
     // Vue.prototype.$messageBox = MessageBox
     // Vue.Toast = Toast
@@ -61,6 +66,9 @@ const xyUI = {
     Vue.prototype.$xyFormat = {
       formatDate,
       relativeDate
+    }
+    Vue.prototype.$xyNumber = {
+      numberAfterPoint
     }
     Vue.prototype.$xyValidate = {
       isIdCard
@@ -90,6 +98,10 @@ let xyDateFormat = {
   relativeDate
 }
 
+let xyNumber = {
+  numberAfterPoint
+}
+
 let xyTools = {
   sleep,
   browser
@@ -103,6 +115,7 @@ export {
   xyLazyloadResize,
   // mintUI,
   xyDateFormat,
+  xyNumber,
   xyTools,
   xyValidate
 }

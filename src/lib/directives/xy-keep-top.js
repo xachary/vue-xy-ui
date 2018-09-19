@@ -10,7 +10,7 @@ let scrolly2 = 0
 
 function scroll (el) {
   // console.log(`window.scrollY:${window.scrollY}, scrolly:${scrolly}, scrolly2:${scrolly2}, height:${height}`)
-  if (el.classList.contains('xy-keep-top--ing')) {
+  if (el.hasAttribute('xy-keep-top--ing')) {
     // el.firstElementChild.firstElementChild.firstElementChild.innerHTML = `window.scrollY:${window.scrollY}, scrolly:${scrolly}, height:${height}`
     if (window.scrollY <= scrolly2) {
       el.style.position = position
@@ -19,7 +19,8 @@ function scroll (el) {
       el.style.width = width
       el.style.zIndex = zindex
       el.style.boxShadow = boxshadow
-      el.classList.remove('xy-keep-top--ing')
+      // el.classList.remove('xy-keep-top--ing')
+      el.removeAttribute('xy-keep-top--ing')
       if (el.nextElementSibling) {
         el.nextElementSibling.style.marginTop = 0
       }
@@ -30,12 +31,13 @@ function scroll (el) {
       el.style.width = width
       el.style.zIndex = zindex
       el.style.boxShadow = boxshadow
-      el.classList.remove('xy-keep-top--ing')
+      // el.classList.remove('xy-keep-top--ing')
+      el.removeAttribute('xy-keep-top--ing')
       if (el.nextElementSibling) {
         el.nextElementSibling.style.marginTop = 0
       }
     }
-  } else if (el.getBoundingClientRect().top <= 0 && !el.classList.contains('xy-keep-top--ing')) {
+  } else if (el.getBoundingClientRect().top <= 0 && !el.hasAttribute('xy-keep-top--ing')) {
     position = el.style.position
     top = el.style.top
     left = el.style.left
@@ -49,7 +51,8 @@ function scroll (el) {
     el.style.width = '100%'
     el.style.zIndex = '100'
     el.style.boxShadow = '0 1px 10px rgba(0,0,0,.1)'
-    el.classList.add('xy-keep-top--ing')
+    // el.classList.add('xy-keep-top--ing')
+    el.setAttribute('xy-keep-top--ing', '')
     if (el.nextElementSibling) {
       el.nextElementSibling.style.marginTop = `${height}px`
     }
@@ -64,7 +67,8 @@ let scrollCb = function () {
 export default {
   name: 'xy-keep-top',
   bind: function (el) {
-    el.classList.add('xy-keep-top')
+    // el.classList.add('xy-keep-top')
+    el.setAttribute('xy-keep-top', '')
     scrollCb = scroll.bind({}, el)
     window.addEventListener('scroll', scrollCb)
   },
