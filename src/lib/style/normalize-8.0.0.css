@@ -351,6 +351,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  /*iphoneX适配 http://web.jobbole.com/93134/ */
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
 *,
 *::before,
 *::after {

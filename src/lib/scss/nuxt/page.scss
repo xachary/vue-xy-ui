@@ -1,5 +1,6 @@
 .container > * {
   min-height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-bottom));
 }
 
 .route-in {
@@ -36,11 +37,12 @@
 @keyframes route-leave {
   from {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    //transform: translate(0, 0) scale(1);
+    //transform: translate(0, 0);
   }
   to {
     opacity: 0;
-    transform: translate(0, 100vh) scale(0);
+    //transform: translate(0, 100vh) scale(0);
   }
 }
 
@@ -50,7 +52,8 @@
     //transform: perspective(100vh) rotateY(90deg) translateZ(40vh) scale(.6);
   }
   to {
-    transform: translate(0, 0) scale(1);
+    //transform: translate(0, 0) scale(1);
+    transform: translate(0, 0);
     //transform: perspective(100vh) rotateY(0deg) translateZ(40vh) scale(.6);
   }
 }
@@ -61,7 +64,8 @@
     //transform: perspective(100vh) rotateY(-90deg) translateZ(40vh) scale(.6);
   }
   to {
-    transform: translate(0, 0) scale(1);
+    //transform: translate(0, 0) scale(1);
+    transform: translate(0, 0);
     //transform: perspective(100vh) rotateY(0deg) translateZ(40vh) scale(.6);
   }
 }
