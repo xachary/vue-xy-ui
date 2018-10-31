@@ -1,180 +1,184 @@
 <template>
-  <div id="app"
-       v-xy-pull-refresh="onPullRefresh">
-    <!--<xy-page-progress></xy-page-progress>-->
-    <xy-reach-bottom threshold="50"
-                     @on-bottom="onbottom"></xy-reach-bottom>
-    <!--<div class="lazy-load"-->
-    <!--style="width: 150px;height: 250px;border: 1px solid red;">-->
-    <!--<img v-lazy="imgTest"-->
-    <!--class="lazy-cover"-->
-    <!--:key="imgTest"-->
-    <!--:data-img="imgTest3"-->
-    <!--:data-index="0"-->
-    <!--v-xy-pop-image:change="onPopChange">-->
-    <!--</div>-->
-    <!--<div class="lazy-load"-->
-    <!--style="width: 250px;height: 150px;border: 1px solid blue;">-->
-    <!--<img v-lazy="imgTest2"-->
-    <!--class="lazy-contain"-->
-    <!--:key="imgTest2"-->
-    <!--:data-img="imgTest2"-->
-    <!--:data-index="1"-->
-    <!--v-xy-pop-image:change="onPopChange">-->
-    <!--</div>-->
-    <xy-time-count class="mall-picks__item__info__time"
-                   :time="time1"
-                   label="即将开始(2天)">
-    </xy-time-count>
-    <xy-time-count class="mall-picks__item__info__time"
-                   :time="time2"
-                   label="即将开始(1天+多5秒)">
-    </xy-time-count>
-    <xy-time-count class="mall-picks__item__info__time"
-                   :time="time3"
-                   label="即将开始(5秒)"
-                   @finish="onFinish">
-    </xy-time-count>
-    <div class="lazy-load"
-         style="width: 250px;height: 150px;border: 1px solid blue;">
-      <img v-lazy="imgTest"
-           class="lazy-contain"
-           :key="imgTest"
-           :data-img="imgTest"
-           v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
-    </div>
-    <div class="lazy-load"
-         style="width: 250px;height: 150px;border: 1px solid blue;">
-      <img v-lazy="imgTest2"
-           class="lazy-contain"
-           :key="imgTest2"
-           :data-img="imgTest2"
-           v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
-    </div>
-    <div class="lazy-load"
-         style="width: 250px;height: 150px;border: 1px solid blue;">
-      <img v-lazy="imgTest3"
-           class="lazy-contain"
-           :key="imgTest3"
-           :data-img="imgTest3"
-           v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
-    </div>
-    <div class="lazy-load"
-         style="width: 30px;height: 30px;border: 1px solid blue;">
-      <img v-lazy="imgTest2"
-           class="lazy-cover"
-           :key="imgTest2"
-           :data-img="imgTest2"
-           v-xy-pop-image:change="onPopChange">
-    </div>
-    <!--<div class="lazy-load"-->
-    <!--style="width: 200px;height: 200px;border: 1px solid green;">-->
-    <!--<img v-lazy="imgTest3"-->
-    <!--class="lazy-contain"-->
-    <!--:key="imgTest3"-->
-    <!--v-xy-pop-image:change="onPopChange">-->
-    <!--</div>-->
-    <button @click="onChangeImg"
-            style="background-color: #eee;padding: 10px;">更换图片
-    </button>
-    <xy-scale-slider width="640"
-                     height="290"
-                     interval="3"
-                     :imgs="imgs3"
-                     @on-change="onchange"
-                     v-xy-moving-btn></xy-scale-slider>
-    <div class="lazy-load"
-         style="border-radius: 50%;width: 100px;height: 100px;"
-         v-for="(item, index) in imgs2"
-         :key="item.id">
-      <img v-lazy="item">
-    </div>
-    <xy-article :des="des"></xy-article>
-    <div id="demo">
-      <router-link tag="button"
-                   to="/page-progress"
-                   v-xy-moving-btn>路由加载
-      </router-link>
-      <router-view></router-view>
-      <xy-list-status status="loading">
-      </xy-list-status>
-      <hr>
-      <xy-list-status status="nomore">
-      </xy-list-status>
-      <hr>
-      <xy-list-status status="nomore">
-        <article slot="nomore"
-                 class="nomore">
-          <div>
-            <div><span>没更多商品了</span></div>
-          </div>
-        </article>
-      </xy-list-status>
-      <hr>
-      <xy-list-status status="empty"></xy-list-status>
-      <hr>
-      <xy-list-status status="empty">
-        <img slot="empty"
-             src="./nomore.png"
-             alt="暂无内容"
-             class="empty">
-      </xy-list-status>
-      <div class="keepTopOther"></div>
-      <div id="keepTop"
-           v-xy-keep-top>
-        <button v-xy-moving-btn>keep-top & moving-btn</button>
+  <div id="app">
+    <!--v-xy-pull-refresh="onPullRefresh"-->
+    <router-view></router-view>
+
+    <div style="display: none">
+      <!--<xy-page-progress></xy-page-progress>-->
+      <xy-reach-bottom threshold="50"
+                       @on-bottom="onbottom"></xy-reach-bottom>
+      <!--<div class="lazy-load"-->
+      <!--style="width: 150px;height: 250px;border: 1px solid red;">-->
+      <!--<img v-lazy="imgTest"-->
+      <!--class="lazy-cover"-->
+      <!--:key="imgTest"-->
+      <!--:data-img="imgTest3"-->
+      <!--:data-index="0"-->
+      <!--v-xy-pop-image:change="onPopChange">-->
+      <!--</div>-->
+      <!--<div class="lazy-load"-->
+      <!--style="width: 250px;height: 150px;border: 1px solid blue;">-->
+      <!--<img v-lazy="imgTest2"-->
+      <!--class="lazy-contain"-->
+      <!--:key="imgTest2"-->
+      <!--:data-img="imgTest2"-->
+      <!--:data-index="1"-->
+      <!--v-xy-pop-image:change="onPopChange">-->
+      <!--</div>-->
+      <xy-time-count class="mall-picks__item__info__time"
+                     :time="time1"
+                     label="即将开始(2天)">
+      </xy-time-count>
+      <xy-time-count class="mall-picks__item__info__time"
+                     :time="time2"
+                     label="即将开始(1天+多5秒)">
+      </xy-time-count>
+      <xy-time-count class="mall-picks__item__info__time"
+                     :time="time3"
+                     label="即将开始(5秒)"
+                     @finish="onFinish">
+      </xy-time-count>
+      <div class="lazy-load"
+           style="width: 250px;height: 150px;border: 1px solid blue;">
+        <img v-lazy="imgTest"
+             class="lazy-contain"
+             :key="imgTest"
+             :data-img="imgTest"
+             v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
       </div>
-      <div class="keepTopOther"></div>
-      <section class="cats cats--empty">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>3</div>
-        <div>2</div>
-        <div>1</div>
-      </section>
-      <section class="cats cats--empty">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>3</div>
-        <div>2</div>
-        <div>1</div>
-      </section>
-      <section class="cats cats--empty">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>3</div>
-        <div>2</div>
-        <div>1</div>
-      </section>
-      <section class="cats cats--empty">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>3</div>
-        <div>2</div>
-        <div>1</div>
-      </section>
-      <section class="cats cats--empty">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>3</div>
-        <div>2</div>
-        <div>1</div>
-      </section>
+      <div class="lazy-load"
+           style="width: 250px;height: 150px;border: 1px solid blue;">
+        <img v-lazy="imgTest2"
+             class="lazy-contain"
+             :key="imgTest2"
+             :data-img="imgTest2"
+             v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
+      </div>
+      <div class="lazy-load"
+           style="width: 250px;height: 150px;border: 1px solid blue;">
+        <img v-lazy="imgTest3"
+             class="lazy-contain"
+             :key="imgTest3"
+             :data-img="imgTest3"
+             v-xy-pop-image:imgs="[imgTest,imgTest2,imgTest3]">
+      </div>
+      <div class="lazy-load"
+           style="width: 30px;height: 30px;border: 1px solid blue;">
+        <img v-lazy="imgTest2"
+             class="lazy-cover"
+             :key="imgTest2"
+             :data-img="imgTest2"
+             v-xy-pop-image:change="onPopChange">
+      </div>
+      <!--<div class="lazy-load"-->
+      <!--style="width: 200px;height: 200px;border: 1px solid green;">-->
+      <!--<img v-lazy="imgTest3"-->
+      <!--class="lazy-contain"-->
+      <!--:key="imgTest3"-->
+      <!--v-xy-pop-image:change="onPopChange">-->
+      <!--</div>-->
+      <button @click="onChangeImg"
+              style="background-color: #eee;padding: 10px;">更换图片
+      </button>
+      <xy-scale-slider width="640"
+                       height="290"
+                       interval="3"
+                       :imgs="imgs3"
+                       @on-change="onchange"
+                       v-xy-moving-btn></xy-scale-slider>
+      <div class="lazy-load"
+           style="border-radius: 50%;width: 100px;height: 100px;"
+           v-for="(item, index) in imgs2"
+           :key="item.id">
+        <img v-lazy="item">
+      </div>
+      <xy-article :des="des"></xy-article>
+      <div id="demo">
+        <router-link tag="button"
+                     to="/page-progress"
+                     v-xy-moving-btn>路由加载
+        </router-link>
+        <router-view></router-view>
+        <xy-list-status status="loading">
+        </xy-list-status>
+        <hr>
+        <xy-list-status status="nomore">
+        </xy-list-status>
+        <hr>
+        <xy-list-status status="nomore">
+          <article slot="nomore"
+                   class="nomore">
+            <div>
+              <div><span>没更多商品了</span></div>
+            </div>
+          </article>
+        </xy-list-status>
+        <hr>
+        <xy-list-status status="empty"></xy-list-status>
+        <hr>
+        <xy-list-status status="empty">
+          <img slot="empty"
+               src="./nomore.png"
+               alt="暂无内容"
+               class="empty">
+        </xy-list-status>
+        <div class="keepTopOther"></div>
+        <div id="keepTop"
+             v-xy-keep-top>
+          <button v-xy-moving-btn>keep-top & moving-btn</button>
+        </div>
+        <div class="keepTopOther"></div>
+        <section class="cats cats--empty">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div>3</div>
+          <div>2</div>
+          <div>1</div>
+        </section>
+        <section class="cats cats--empty">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div>3</div>
+          <div>2</div>
+          <div>1</div>
+        </section>
+        <section class="cats cats--empty">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div>3</div>
+          <div>2</div>
+          <div>1</div>
+        </section>
+        <section class="cats cats--empty">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div>3</div>
+          <div>2</div>
+          <div>1</div>
+        </section>
+        <section class="cats cats--empty">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div>3</div>
+          <div>2</div>
+          <div>1</div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -293,7 +297,7 @@
     },
     methods: {
       onbottom () {
-        alert('onbottom')
+        //        alert('onbottom')
       },
       onchange (item, index, total) {
         //        console.log('onchange', item, index, total)
@@ -413,6 +417,7 @@
 
   body {
     margin: 0;
+    position: relative;
   }
 
   #demo {
