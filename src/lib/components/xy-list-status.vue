@@ -12,6 +12,7 @@
     font-size: rsh(28);
     color: rgba(166, 166, 166, 1);
     line-height: rsh(80);
+    text-align: center;
     &.xy-list-status--loading {
       & > div {
         @keyframes xy-list-status__char {

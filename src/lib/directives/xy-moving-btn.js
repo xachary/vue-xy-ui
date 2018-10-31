@@ -1,13 +1,13 @@
 let timer = null
 
 function btnClick (el) {
-  el.classList.add('xy-moving-btn--moving')
+  el.setAttribute('xy-moving-btn--moving', '')
   if (timer) {
     clearTimeout(timer)
     timer = null
   }
   timer = setTimeout(function () {
-    el.classList.remove('xy-moving-btn--moving')
+    el.removeAttribute('xy-moving-btn--moving')
   }, 300)
 }
 
@@ -18,7 +18,7 @@ let btnClickCb = function () {
 export default {
   name: 'xy-moving-btn',
   bind: function (el) {
-    el.classList.add('xy-moving-btn')
+    el.setAttribute('xy-moving-btn', '')
     btnClickCb = btnClick.bind({}, el)
     el.addEventListener('click', btnClickCb)
   },

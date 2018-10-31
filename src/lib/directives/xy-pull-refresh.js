@@ -108,10 +108,10 @@ function onWinScroll () {
 
 // 启动自动动画
 function move () {
-  loader.classList.add('pull-refresh__bar--auto')
+  loader.classList.add('xy-pull-refresh__bar--auto')
   clearTimeout(timer)
   timer = setTimeout(function () {
-    loader.classList.remove('pull-refresh__bar--auto')
+    loader.classList.remove('xy-pull-refresh__bar--auto')
   }, 300)
 }
 
@@ -146,9 +146,9 @@ logger.innerHTML = ''
 
 // 打日志
 function log (str) {
-  console.log(str)
-  logger.innerHTML = logger.innerHTML + (logger.innerHTML ? '<br>' : '') + str
-  logger.scrollTop = logger.scrollHeight
+  // console.log(str)
+  // logger.innerHTML = logger.innerHTML + (logger.innerHTML ? '<br>' : '') + str
+  // logger.scrollTop = logger.scrollHeight
 }
 
 // 动画计时器

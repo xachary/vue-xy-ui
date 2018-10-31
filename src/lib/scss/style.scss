@@ -13,8 +13,8 @@
   }
 }
 
-.xy-moving-btn {
-  &.xy-moving-btn--moving {
+[xy-moving-btn] {
+  &[xy-moving-btn--moving] {
     animation: xy-moving-btn 0.2s ease-in-out;
   }
 }

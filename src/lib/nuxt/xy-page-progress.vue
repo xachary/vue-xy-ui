@@ -1,6 +1,6 @@
 <template>
-  <div class="progress">
-    <div class="progress-bar"
+  <div class="xy-progress">
+    <div class="xy-progress-bar"
          :style="{
             'width': percent+'%',
             'height': height,
@@ -9,7 +9,7 @@
           }"
          :class="{failed:!canSuccess}">
     </div>
-    <!--<div class="progress-number" :style="{'display': show ? 'block' : 'none'}">-->
+    <!--<div class="xy-progress-number" :style="{'display': show ? 'block' : 'none'}">-->
     <!--<div>{{percent + '%'}}</div>-->
     <!--</div>-->
   </div>
@@ -94,8 +94,8 @@
 </script>
 
 <style lang="scss">
-  .progress {
-    .progress-bar {
+  .xy-progress {
+    .xy-progress-bar {
       position: fixed;
       top: 0px;
       left: 0px;
@@ -112,7 +112,7 @@
         background-color: #fb5651;
       }
     }
-    .progress-number {
+    .xy-progress-number {
       position: fixed;
       top: 0;
       left: 0;

@@ -1,12 +1,14 @@
 <style lang="scss"
        scoped>
   .xy-time-count {
-
+    & > label {
+      padding: 0 1px;
+    }
   }
 </style>
 <template>
   <div class="xy-time-count">
-    {{label}}: <span v-if="day>0">{{day}}</span><label v-if="day>0">天</label><span>{{hourStr}}</span><label>:</label><span>{{minStr}}</span><label>:</label><span>{{secStr}}</span>
+    {{label ? `${label}: ` : ''}}<span v-if="day>0">{{day}}</span><label v-if="day>0">天</label><span>{{hourStr}}</span><label for="">:</label><span>{{minStr}}</span><label for="">:</label><span>{{secStr}}</span>
   </div>
 </template>
 
@@ -67,7 +69,7 @@
           that.timer = null
           that.$emit('finish')
         }
-        console.log(snap)
+        //        console.log(snap)
       }
     },
     mounted: function () {
