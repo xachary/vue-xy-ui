@@ -15,21 +15,40 @@ button {
       & > * {
         font-size: 0;
       }
+      //&:after {
+      //  content: '';
+      //  display: block;
+      //  //width: 8%;
+      //  //padding-top: 8%;
+      //  width: 6vw;
+      //  padding-top: 6vw;
+      //  animation: rotating 1s linear infinite;
+      //  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTklEQVQ4y52SPU8CQRBAtzI2mljxD4yJNvoH/FcmGCPe7awGRbidhWAQ/GJn7tBGG8Roa2FlR2kriYmVxESLsYBGNMrx2s17m50dpUYICvUMWNoC5C4g9wF5To1LoXaR1dYLIAsgfwLyPSBNjyUH1tey+YaEEXWNi1dVGvLl1jpYkqPWTV2lRbvmbK50JjuV5ElNgkEPxrFoy8sTBcByD5Df1aQMJ/6Q/uk8BcgzyrhYAOPUAeP4HJA/VFCiXr7a6qcNbJfjtyAiUSHyvkGSoNiYH1euNjuZsERiKj5Rm8U4kyt6MZXkMcXtnTAi0fZ8QSml1G6V9rRlOaB2/t/hRfEaWC/aJcffDkJLlxuFE9GRvzOOV0bFBrWXdOSvAmTRlm9/r1u2evCtAsgvgNwBpGtw/AzIogfy4d97UeZFsHF9GBAYSK9hRKca6ce2fgEBIMcpno6nCQAAAABJRU5ErkJggg==') no-repeat;
+      //  background-size: 100% 100%;
+      //  position: absolute;
+      //  left: 50%;
+      //  top: 50%;
+      //  //margin-left: -4%;
+      //  //margin-top: -4%;
+      //  margin-left: -3vw;
+      //  margin-top: -3vw;
+      //}
       &:after {
         content: '';
         display: block;
-        //width: 8%;
-        //padding-top: 8%;
-        width: 6vw;
-        padding-top: 6vw;
         animation: rotating 1s linear infinite;
-        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTklEQVQ4y52SPU8CQRBAtzI2mljxD4yJNvoH/FcmGCPe7awGRbidhWAQ/GJn7tBGG8Roa2FlR2kriYmVxESLsYBGNMrx2s17m50dpUYICvUMWNoC5C4g9wF5To1LoXaR1dYLIAsgfwLyPSBNjyUH1tey+YaEEXWNi1dVGvLl1jpYkqPWTV2lRbvmbK50JjuV5ElNgkEPxrFoy8sTBcByD5Df1aQMJ/6Q/uk8BcgzyrhYAOPUAeP4HJA/VFCiXr7a6qcNbJfjtyAiUSHyvkGSoNiYH1euNjuZsERiKj5Rm8U4kyt6MZXkMcXtnTAi0fZ8QSml1G6V9rRlOaB2/t/hRfEaWC/aJcffDkJLlxuFE9GRvzOOV0bFBrWXdOSvAmTRlm9/r1u2evCtAsgvgNwBpGtw/AzIogfy4d97UeZFsHF9GBAYSK9hRKca6ce2fgEBIMcpno6nCQAAAABJRU5ErkJggg==') no-repeat;
-        background-size: 100% 100%;
         position: absolute;
         left: 50%;
         top: 50%;
-        //margin-left: -4%;
-        //margin-top: -4%;
+        width: 6vw;
+        height: 6vw;
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 1vw;
+        border-left-color: gray;
+        border-right-color: gray;
+        border-top-color: gray;
+        border-bottom-color: transparent;
         margin-left: -3vw;
         margin-top: -3vw;
       }
