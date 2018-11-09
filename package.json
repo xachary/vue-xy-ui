@@ -1,7 +1,7 @@
 {
   "name": "vue-xy-ui",
   "description": "Some ui components by xachary",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "xachary <xachary@qq.com>",
   "license": "MIT",
   "private": false,
@@ -13,7 +13,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0",
     "start": "npm run dev",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build": "rollup -c",
+    "build2": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "push": "npm run build;git add .;git commit -m 'update';git push -u origin master;npm publish",
     "start2": "./node_modules/spa-http-server/bin/http-server -p 7777 --push-state"
   },
@@ -42,6 +43,12 @@
     "postcss-loader": "^2.1.6",
     "postcss-nested": "^3.0.0",
     "postcss-simple-vars": "^4.1.0",
+    "rollup-copy-plugin": "^0.1.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-sass": "^0.9.2",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-vue": "^4.3.2",
     "sass-loader": "^6.0.6",
     "spa-http-server": "^0.9.0",
     "vue-loader": "^13.0.5",

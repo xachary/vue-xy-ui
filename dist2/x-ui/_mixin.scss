@@ -1,0 +1,215 @@
+// 设计稿750x1334
+
+// relate to screen height
+// 传入设计稿高度
+@function rsh($value) {
+  //@return $value/1334*100vh;
+  //@return $value/1334*100vmax;
+  //@return $value*0.5px;
+  //@return calc(var(--base-unit) * 0.75);
+  //@return calc(var(--base-unit) * 0.75);
+  @return $value/750*100vw;
+}
+
+// design value
+// 传入设计稿值
+@function dsv($value) {
+  @return $value/2;
+}
+
+// a标签的颜色
+@mixin acr($color) {
+  color: $color;
+  &:link {
+    color: $color;
+  }
+  &:visited {
+    color: $color;
+  }
+  &:hover {
+    color: $color;
+  }
+  &:active {
+    color: $color;
+  }
+}
+
+@mixin angle($color,$size:24,$direction:'right',$style:'slim') {
+  $char: '>';
+  $tran: scale(1, 2);
+  @if $direction == 'left' {
+    $char: '<';
+  } @else if $direction == 'top' {
+    $char: '∧';
+    $tran: scale(1, 0.5);
+  } @else if $direction == 'bottom' {
+    $char: '∨';
+    $tran: scale(1, 0.5);
+  }
+  @if $style == 'solid' {
+    $tran: scale(1, 0.6);
+    //$size: 12;
+    @if $direction == 'right' {
+      $char: '▶';
+    } @else if $direction == 'left' {
+      $char: '◀';
+    } @else if $direction == 'top' {
+      $char: '▲';
+    } @else if $direction == 'bottom' {
+      $char: '▼';
+    }
+  }
+  &:after {
+    content: $char;
+    display: block;
+    color: $color;
+    transform: $tran;
+    transform-origin: center;
+    font-weight: 100;
+    font-size: rsh($size - 2);
+    line-height: rsh($size);
+    height: rsh($size);
+    vertical-align: middle;
+    flex-grow: 0;
+  }
+}
+
+//@mixin img-cover($w,$h) {
+//  overflow: hidden;
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//  justify-content: center;
+//  position: relative;
+//  & > img {
+//    width: 100%;
+//    min-width: rsh($w);
+//    min-height: rsh($h);
+//    flex-shrink: 0;
+//  }
+//}
+
+//省略号
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin ellipsis-line($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+
+@mixin icon($url) {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url($url);
+}
+
+@mixin cbg($url) {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url($url);
+}
+
+@mixin well-out() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin well-item($num:3,$width:1,$color:red,$type:'empty') {
+  width: 100%/$num;
+  box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset;
+  content: $type;
+  @if $type == 'empty' {
+    &:nth-child(#{$num}n) {
+      box-shadow: 0 $width*-1px 0 0 $color inset;
+      &:nth-last-child(1) {
+        box-shadow: none;
+      }
+    }
+    @if $num - 2 > 0 {
+      @for $i from 1 through $num - 2 {
+        &:nth-child(#{$num}n-#{$i}) {
+          @for $i2 from 1 through $i + 1 {
+            &:nth-last-child(#{$i2}) {
+              box-shadow: $width*-1px 0 0 0 $color inset;
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(#{$num}n-#{$num - 1}) {
+      @for $i from 1 through $num {
+        &:nth-last-child(#{$i}) {
+          box-shadow: $width*-1px 0 0 0 $color inset;
+        }
+      }
+    }
+
+    //&:nth-child(3n-2) {
+    //  &:nth-last-child(1), &:nth-last-child(2), &:nth-last-child(3) {
+    //    box-shadow: $width*-1px 0 0 0 $color inset;
+    //  }
+    //}
+    //&:nth-child(3n-1) {
+    //  &:nth-last-child(1), &:nth-last-child(2) {
+    //    box-shadow: $width*-1px 0 0 0 $color inset;
+    //  }
+    //}
+
+    //&:nth-child(3n) {
+    //  box-shadow: 0 $width*-1px 0 0 $color inset;
+    //  &:nth-last-child(1) {
+    //    box-shadow: none;
+    //  }
+    //}
+  } @else if $type == 'tb' {
+    &:nth-child(#{$num}n) {
+      box-shadow: 0 $width*-1px 0 0 $color inset;
+      &:nth-child(#{$num}) {
+        box-shadow: 0 $width*-1px 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+      }
+    }
+    @for $i from 1 through $num - 1 {
+      &:nth-child(#{$i}) {
+        box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+      }
+    }
+    //&:nth-child(#{$num}n) {
+    //  box-shadow: 0 $width*-1px 0 0 $color inset;
+    //  &:nth-child(#{$num}) {
+    //    box-shadow: 0 $width*-1px 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+    //  }
+    //}
+    //&:nth-child(1), &:nth-child(2) {
+    //  box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+    //}
+  } @else if $type == 'all' {
+    &:nth-child(#{$num}n-#{$num - 1}) {
+      box-shadow: $width*-1px 0 0 0 $color inset, $width*1px 0 0 0 $color inset, 0 $width*-1px 0 0 $color inset;
+    }
+    @for $i from 1 through $num {
+      &:nth-child(#{$i}) {
+        box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+        &:nth-child(#{$num}n-#{$num - 1}) {
+          box-shadow: $width*-1px $width*-1px 0 0 $color inset, $width*1px $width*1px 0 0 $color inset;
+        }
+      }
+    }
+    //&:nth-child(#{$num}n-2) {
+    //  box-shadow: $width*-1px 0 0 0 $color inset, $width*1px 0 0 0 $color inset, 0 $width*-1px 0 0 $color inset;
+    //}
+    //&:nth-child(1), &:nth-child(2), &:nth-child(3) {
+    //  box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+    //  &:nth-child(#{$num}n-2) {
+    //    box-shadow: $width*-1px $width*-1px 0 0 $color inset, $width*1px $width*1px 0 0 $color inset;
+    //  }
+    //}
+  }
+}
