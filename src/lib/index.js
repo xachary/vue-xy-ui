@@ -4,6 +4,7 @@ import Style from './scss/style.scss'
 
 import xyKeepTop from './directives/xy-keep-top'
 import xyMovingBtn from './directives/xy-moving-btn'
+import xyHoverBtn from './directives/xy-hover-btn'
 import xyPullRefresh from './directives/xy-pull-refresh'
 import xyPopImage from './directives/xy-pop-image'
 
@@ -43,6 +44,7 @@ const xyUI = {
   install (Vue) {
     Vue.directive(xyKeepTop.name, xyKeepTop)
     Vue.directive(xyMovingBtn.name, xyMovingBtn)
+    Vue.directive(xyHoverBtn.name, xyHoverBtn)
     Vue.directive(xyPullRefresh.name, xyPullRefresh)
     Vue.directive(xyPopImage.name, xyPopImage)
 

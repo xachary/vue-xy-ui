@@ -19,6 +19,22 @@
   }
 }
 
+@keyframes xy-hover-btn {
+  0% {
+  }
+  50% {
+    background-color: rgba(0, 0, 0, .1);
+  }
+  100% {
+  }
+}
+
+[xy-hover-btn] {
+  &[xy-hover-btn--moving] {
+    animation: xy-hover-btn 0.2s ease-in-out;
+  }
+}
+
 @keyframes rotating {
   0% {
     //opacity: 0;
