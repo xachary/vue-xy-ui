@@ -65,6 +65,8 @@ const xyUI = {
     // Vue.prototype.$indicator = Indicator
     // Vue.component(Field.name, Field)
 
+    Vue.filter('formatDate', formatDate)
+
     Vue.prototype.$xyFormat = {
       formatDate,
       relativeDate

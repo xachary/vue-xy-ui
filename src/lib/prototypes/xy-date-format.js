@@ -1,4 +1,5 @@
-function formatDate (date, fmt) {
+function formatDate (d, fmt) {
+  let date = new Date(d)
   var o = {
     'M+': date.getMonth() + 1, // 月份
     'd+': date.getDate(), // 日
