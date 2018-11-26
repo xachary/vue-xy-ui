@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import PageProgress from './page-progress.vue'
 import IphoneX from './iphone-x.vue'
 import Media from './media.vue'
+import PopImage from './pop-image.vue'
 import Style from './lib/scss/style.scss'
 
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
     path: '/media',
     name: 'media',
     component: Media
+  },
+  {
+    path: '/pop-image',
+    name: 'pop-image',
+    component: PopImage
   }
 ]
 const router = new VueRouter({

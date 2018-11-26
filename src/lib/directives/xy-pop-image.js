@@ -41,6 +41,10 @@ function btnClick (el) {
     instances[el.dataset.id].visible = true
     instances[el.dataset.id].img = el.dataset.img
     instances[el.dataset.id].index = el.dataset.index
+  } else if (el.tagName !== 'IMG') {
+    instances[el.dataset.id].visible = true
+    instances[el.dataset.id].img = el.dataset.img
+    instances[el.dataset.id].index = el.dataset.index
   }
 }
 
