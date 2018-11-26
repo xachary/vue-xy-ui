@@ -1,7 +1,7 @@
 {
   "name": "vue-xy-ui",
   "description": "Some ui components by xachary",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "xachary <xachary@qq.com>",
   "license": "MIT",
   "private": false,
@@ -15,7 +15,7 @@
     "start": "npm run dev",
     "build": "rollup -c",
     "build2": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "push": "npm run build;git add .;git commit -m 'update';git push -u origin master;npm publish",
+    "push": "npm run build2;git add .;git commit -m 'update';git push -u origin master;npm publish",
     "start2": "./node_modules/spa-http-server/bin/http-server -p 7777 --push-state"
   },
   "dependencies": {
