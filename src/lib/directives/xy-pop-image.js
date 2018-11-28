@@ -62,6 +62,7 @@ export default {
     document.body.appendChild(instance.$el)
     instances[el.dataset.id] = instance
     pops[el.dataset.id] = value
+    // debugger
 
     if (arg === 'change' && value) {
       // if (handlers.has(value)) {
@@ -74,6 +75,7 @@ export default {
       // }
     } else if (arg === 'imgs' && value) {
       instance.$on('on-change', function (direction, data) {
+        // debugger
         let imgs = pops[el.dataset.id]
         let idx = imgs.indexOf(instances[el.dataset.id].img)
         let next = direction === 'pre' ? ((imgs.length + idx - 1) % imgs.length) : ((idx + 1) % imgs.length)

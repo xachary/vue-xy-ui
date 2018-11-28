@@ -8,13 +8,13 @@
       <img v-lazy="'http://dummyimage.com/335x190/cffbfd/000'"
            class="lazy-contain"
            :data-img="'http://dummyimage.com/335x190/cffbfd/000'"
-           v-xy-pop-image:imgs="['http://dummyimage.com/335x190/cffbfd/000','http://dummyimage.com/335x190/cffbfd/000']">
+           v-xy-pop-image:imgs="['http://dummyimage.com/335x190/cffbfd/000','http://dummyimage.com/335x400/cffbfd/000']">
     </div>
     <br>
     <button img="http://dummyimage.com/335x190/cffbfd/000"
             class="lazy-contain"
             :data-img="'http://dummyimage.com/335x190/cffbfd/000'"
-            v-xy-pop-image:imgs="['http://dummyimage.com/335x190/cffbfd/000','http://dummyimage.com/335x190/cffbfd/000']">
+            v-xy-pop-image:imgs="['http://dummyimage.com/335x190/cffbfd/000','http://dummyimage.com/335x300/cffbfd/000']">
       测试
     </button>
   </div>

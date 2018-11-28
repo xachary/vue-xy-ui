@@ -50,8 +50,8 @@
         min: 0,
         sec: 0,
         tm: 0,
-        timer: null,
-        now: now
+        now: now,
+        timer: null
       }
     },
     methods: {
@@ -64,10 +64,11 @@
           that.hour = Math.floor((snap % 86400000) / 3600000) // 1000 / 60 / 60
           that.min = Math.floor((snap % 3600000) / 60000) // 1000 / 60
           that.sec = Math.floor((snap % 60000) / 1000) // 1000
-        } else {
-          clearInterval(that.timer)
-          that.timer = null
-          that.$emit('finish')
+
+          if (snap <= 1000) {
+            clearInterval(that.timer)
+            that.$emit('finish')
+          }
         }
         //        console.log(snap)
       }
@@ -76,16 +77,16 @@
       let that = this
       that.tm = that.time.getTime()
       if (that.now < that.tm) {
-        that.update()
+        clearInterval(that.timer)
+        console.log('create')
         that.timer = setInterval(function () {
           that.update()
         }, 1000)
+        that.update()
       }
     },
     beforeDestroy: function () {
-      let that = this
       clearInterval(that.timer)
-      that.timer = null
     }
   }
 </script>

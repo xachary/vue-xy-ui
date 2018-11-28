@@ -1,36 +1,50 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Index from './index.vue'
 import VueRouter from 'vue-router'
 import PageProgress from './page-progress.vue'
 import IphoneX from './iphone-x.vue'
 import Media from './media.vue'
 import PopImage from './pop-image.vue'
+import Timer from './timer.vue'
 import Style from './lib/scss/style.scss'
 
-const routes = [
-  {
-    path: '/page-progress',
-    name: 'page-progress',
-    component: PageProgress
-  },
-  {
-    path: '/iphone-x',
-    name: 'iphone-x',
-    component: IphoneX
-  },
-  {
-    path: '/media',
-    name: 'media',
-    component: Media
-  },
-  {
-    path: '/pop-image',
-    name: 'pop-image',
-    component: PopImage
-  }
-]
 const router = new VueRouter({
-  routes // (缩写) 相当于 routes: routes
+  routes: [
+    {
+      path: '/',
+      component: Index
+    },
+    {
+      path: '',
+      redirect: '/index',
+    },
+    {
+      path: '/page-progress',
+      name: 'page-progress',
+      component: PageProgress
+    },
+    {
+      path: '/iphone-x',
+      name: 'iphone-x',
+      component: IphoneX
+    },
+    {
+      path: '/media',
+      name: 'media',
+      component: Media
+    },
+    {
+      path: '/pop-image',
+      name: 'pop-image',
+      component: PopImage
+    },
+    {
+      path: '/timer',
+      name: 'timer',
+      component: Timer
+    }
+  ]
 })
 new Vue({
   router,
