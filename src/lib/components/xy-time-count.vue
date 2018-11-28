@@ -86,6 +86,7 @@
       }
     },
     beforeDestroy: function () {
+      let that = this
       clearInterval(that.timer)
     }
   }
