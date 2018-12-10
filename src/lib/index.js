@@ -21,6 +21,7 @@ import xyReachBottom from './components/xy-reach-bottom.vue'
 import xyScaleSlider from './components/xy-scale-slider.vue'
 import xyListStatus from './components/xy-list-status.vue'
 import xyTimeCount from './components/xy-time-count.vue'
+import xyTiming from './components/xy-timing.vue'
 
 import {
   formatDate,
@@ -57,6 +58,7 @@ const xyUI = {
     Vue.component(xyScaleSlider.name, xyScaleSlider)
     Vue.component(xyListStatus.name, xyListStatus)
     Vue.component(xyTimeCount.name, xyTimeCount)
+    Vue.component(xyTiming.name, xyTiming)
     // Vue.MessageBox = MessageBox
     // Vue.prototype.$messageBox = MessageBox
     // Vue.Toast = Toast

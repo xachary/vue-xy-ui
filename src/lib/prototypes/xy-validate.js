@@ -6,6 +6,14 @@ function isIdCard (card) {
   }
 }
 
+function mobile (card) {
+  var reg = /^((0\d{2,3}-?\d{7,8})|(1[34578]\d{9}))$/
+  return {
+    valid: reg.test(card),
+    msg: '手机号号不正确'
+  }
+}
+
 export {
   isIdCard
 }

@@ -8,6 +8,10 @@
       threshold: {
         type: String,
         default: 0
+      },
+      paused: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -24,8 +28,10 @@
         if (window.scrollY + threshold >= document.body.scrollHeight - window.innerHeight) {
           if (!that.done) {
             that.done = true
-            that.$emit('on-bottom')
-            console.log('reach bottom')
+            if (!that.paused) {
+              that.$emit('on-bottom')
+              console.log('reach bottom')
+            }
           }
         } else {
           that.done = false
