@@ -102,6 +102,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  /*! autoprefixer: off */
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   word-wrap: break-word;
