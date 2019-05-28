@@ -13,6 +13,7 @@ div.xy-list-status {
   color: rgba(166, 166, 166, 1);
   line-height: rsh(80);
   text-align: center;
+  padding: rsh(15) 0;
   &.xy-list-status--loading {
     & > div {
       @keyframes xy-list-status__char {
