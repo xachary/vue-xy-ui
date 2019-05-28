@@ -1,5 +1,6 @@
-function formatDate (d, fmt) {
-  let date = new Date(d)
+function formatDate(d, fmt) {
+  let fix = typeof d === 'string' ? d.replace(/-/, '/') : d
+  let date = new Date(fix)
   var o = {
     'M+': date.getMonth() + 1, // 月份
     'd+': date.getDate(), // 日
@@ -7,20 +8,28 @@ function formatDate (d, fmt) {
     'm+': date.getMinutes(), // 分
     's+': date.getSeconds(), // 秒
     'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
-    'S': date.getMilliseconds() // 毫秒
+    S: date.getMilliseconds() // 毫秒
   }
   var format = fmt
-  if (/(y+)/.test(format)) format = format.replace(RegExp.$1, String(date.getFullYear())
-    .substr(4 - RegExp.$1.length))
+  if (/(y+)/.test(format))
+    format = format.replace(
+      RegExp.$1,
+      String(date.getFullYear()).substr(4 - RegExp.$1.length)
+    )
   for (var k in o) {
     if (new RegExp('(' + k + ')').test(format)) {
-      format = format.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(String(o[k]).length)))
+      format = format.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1
+          ? o[k]
+          : ('00' + o[k]).substr(String(o[k]).length)
+      )
     }
   }
   return format
 }
 
-function relativeDate (v) {
+function relativeDate(v) {
   var now = new Date()
   var time = new Date(v)
   var span = now - time
@@ -41,7 +50,4 @@ function relativeDate (v) {
   return '刚刚'
 }
 
-export {
-  formatDate,
-  relativeDate
-}
+export { formatDate, relativeDate }
