@@ -1,5 +1,5 @@
 function formatDate(d, fmt) {
-  let fix = typeof d === 'string' ? d.replace(/-/, '/') : d
+  let fix = typeof d === 'string' ? d.replace(/-/g, '/') : d
   let date = new Date(fix)
   var o = {
     'M+': date.getMonth() + 1, // 月份

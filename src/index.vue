@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>{{'2019-06-03' | formatDate('yyyy.MM.dd')}}</div>
     <!--<xy-page-progress></xy-page-progress>-->
     <xy-reach-bottom threshold="50" @on-bottom="onbottom"></xy-reach-bottom>
     <!--<div class="lazy-load"-->
