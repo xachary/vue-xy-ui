@@ -93,7 +93,11 @@ export default {
           for (let i = 0; i < ls.length; i++) {
             let src = ls[i].replace(/v-lazy="'(.*?)'"/g, '$1')
             imgs.push(`'${src}'`)
-            tpl = tpl.replace(src, `${src}?idx=${i}`)
+            if (/\?[^?]*$/.test(src)) {
+              tpl = tpl.replace(src, `${src}&idx=${i}`)
+            } else {
+              tpl = tpl.replace(src, `${src}?idx=${i}`)
+            }
           }
           tpl = tpl.replace(/v-xy-pop-image/g, `v-xy-pop-image:imgs="[${imgs.join(',')}]"`)
         }

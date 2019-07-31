@@ -8,7 +8,8 @@ function formatDate(d, fmt) {
     'm+': date.getMinutes(), // 分
     's+': date.getSeconds(), // 秒
     'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
-    S: date.getMilliseconds() // 毫秒
+    S: date.getMilliseconds(), // 毫秒
+    D: '星期' + ['一', '二', '三', '四', '五', '六', '日'][date.getDay() - 1] // 星期
   }
   var format = fmt
   if (/(y+)/.test(format))
