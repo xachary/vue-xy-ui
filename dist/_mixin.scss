@@ -8,7 +8,7 @@
   //@return $value*0.5px;
   //@return calc(var(--base-unit) * 0.75);
   //@return calc(var(--base-unit) * 0.75);
-  @return $value/750*100vw;
+  @return $value/750 * 100vw;
 }
 
 // design value
@@ -34,7 +34,7 @@
   }
 }
 
-@mixin angle($color,$size:24,$direction:'right',$style:'slim') {
+@mixin angle($color, $size: 24, $direction: 'right', $style: 'slim') {
   $char: '>';
   $tran: scale(1, 2);
   @if $direction == 'left' {
@@ -125,13 +125,13 @@
   flex-wrap: wrap;
 }
 
-@mixin well-item($num:3,$width:1,$color:red,$type:'empty') {
-  width: 100%/$num;
-  box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset;
+@mixin well-item($num: 3, $width: 1, $color: red, $type: 'empty') {
+  width: 100% / $num;
+  box-shadow: 0 $width * -1px 0 0 $color inset, $width * -1px 0 0 0 $color inset;
   content: $type;
   @if $type == 'empty' {
     &:nth-child(#{$num}n) {
-      box-shadow: 0 $width*-1px 0 0 $color inset;
+      box-shadow: 0 $width * -1px 0 0 $color inset;
       &:nth-last-child(1) {
         box-shadow: none;
       }
@@ -141,7 +141,7 @@
         &:nth-child(#{$num}n-#{$i}) {
           @for $i2 from 1 through $i + 1 {
             &:nth-last-child(#{$i2}) {
-              box-shadow: $width*-1px 0 0 0 $color inset;
+              box-shadow: $width * -1px 0 0 0 $color inset;
             }
           }
         }
@@ -150,7 +150,7 @@
     &:nth-child(#{$num}n-#{$num - 1}) {
       @for $i from 1 through $num {
         &:nth-last-child(#{$i}) {
-          box-shadow: $width*-1px 0 0 0 $color inset;
+          box-shadow: $width * -1px 0 0 0 $color inset;
         }
       }
     }
@@ -174,14 +174,16 @@
     //}
   } @else if $type == 'tb' {
     &:nth-child(#{$num}n) {
-      box-shadow: 0 $width*-1px 0 0 $color inset;
+      box-shadow: 0 $width * -1px 0 0 $color inset;
       &:nth-child(#{$num}) {
-        box-shadow: 0 $width*-1px 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+        box-shadow: 0 $width * -1px 0 0 $color inset,
+          0 $width * 1px 0 0 $color inset;
       }
     }
     @for $i from 1 through $num - 1 {
       &:nth-child(#{$i}) {
-        box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+        box-shadow: 0 $width * -1px 0 0 $color inset,
+          $width * -1px 0 0 0 $color inset, 0 $width * 1px 0 0 $color inset;
       }
     }
     //&:nth-child(#{$num}n) {
@@ -195,13 +197,16 @@
     //}
   } @else if $type == 'all' {
     &:nth-child(#{$num}n-#{$num - 1}) {
-      box-shadow: $width*-1px 0 0 0 $color inset, $width*1px 0 0 0 $color inset, 0 $width*-1px 0 0 $color inset;
+      box-shadow: $width * -1px 0 0 0 $color inset,
+        $width * 1px 0 0 0 $color inset, 0 $width * -1px 0 0 $color inset;
     }
     @for $i from 1 through $num {
       &:nth-child(#{$i}) {
-        box-shadow: 0 $width*-1px 0 0 $color inset, $width*-1px 0 0 0 $color inset, 0 $width*1px 0 0 $color inset;
+        box-shadow: 0 $width * -1px 0 0 $color inset,
+          $width * -1px 0 0 0 $color inset, 0 $width * 1px 0 0 $color inset;
         &:nth-child(#{$num}n-#{$num - 1}) {
-          box-shadow: $width*-1px $width*-1px 0 0 $color inset, $width*1px $width*1px 0 0 $color inset;
+          box-shadow: $width * -1px $width * -1px 0 0 $color inset,
+            $width * 1px $width * 1px 0 0 $color inset;
         }
       }
     }
@@ -214,5 +219,30 @@
     //    box-shadow: $width*-1px $width*-1px 0 0 $color inset, $width*1px $width*1px 0 0 $color inset;
     //  }
     //}
+  }
+}
+
+@mixin list-split($color, $direction: top, $style: solid) {
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    transform: scale(1, 0.5);
+    @if $style == solid {
+      height: 1px;
+      background-color: $color;
+    } @else {
+      height: 0;
+      border-top: 1px $style $color;
+    }
+    @if $direction == top {
+      left: 0;
+      top: 0;
+    } @else if $direction == bottom {
+      left: 0;
+      bottom: 0;
+    }
   }
 }
